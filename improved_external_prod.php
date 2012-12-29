@@ -39,7 +39,7 @@ if ( ! function_exists( 'woocommerce_external_add_to_cart' ) ) {
 
 		if ( ! $product_url ) return;
 
-		woocommerce_get_template( '../../external_newtab/external.php', array(
+		woocommerce_get_template( '../../woocommerce-improved-external-products/external.php', array(
 				'product_url' => $product_url,
 				'button_text' => ( $button_text ) ? $button_text : __( 'Buy product', 'woocommerce' ) ,
 			) );
