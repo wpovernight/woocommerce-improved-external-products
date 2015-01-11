@@ -3,8 +3,8 @@ Contributors: jprummer
 Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.0.1
-Tested up to: 3.5
-Stable tag: 1.0.1
+Tested up to: 4.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,8 +27,22 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Changelog ==
 
-No Changes 
+= 1.1 =
+
+* Fix: Works on shop pages
+* Tweak: Improvements for WooCommerce 2.0+
+
+= 1.0.1 = 
+
+* Initial Release
 
 == Upgrade Notice ==
 
-No Upgrades
+= 1.1 =
+
+* Fix: Works on shop pages
+* Tweak: Improvements for WooCommerce 2.0+
+
+= 1.0.1 = 
+
+* Initial Release
