@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Improved External Products
 Plugin URI: https://wpovernight.com/
 Description: Opens External/Affiliate products in a new tab.
-Version: 1.1
+Version: 1.1.1
 Author: Jeremiah Prummer
 Author URI: https://wpovernight.com/
 License: GPL2
@@ -26,27 +26,10 @@ class ImprovedExternalProducts {
 	 */
 	public function __construct() {
 		add_filter( 'woocommerce_loop_add_to_cart_link', array(&$this,'shop_loop_link'), 10, 2 );
-		//add_action('plugins_loaded', array(&$this,'product_page_link'));
 		add_filter( 'woocommerce_locate_template', array(&$this,'myplugin_woocommerce_locate_template'), 10, 3 );
+		add_action('wp_footer', array(&$this,'javascript_backup'));
 	}
-	/**
-	 * Output the external product add to cart area.
-	 *
-	 * @access public
-	 * @subpackage	Product
-	 * @return void
-	 */
-	function product_page_link() {
-		global $woocommerce;
-		global $product;
-		$product_url = get_post_meta( $product->id, '_product_url', true  );
-		$button_text = get_post_meta( $product->id, '_button_text', true  );
-		if ( ! $product_url ) return;
-		woocommerce_get_template( '../../woocommerce-improved-external-products/external.php', array(
-				'product_url' => $product_url,
-				'button_text' => ( $button_text ) ? $button_text : __( 'Buy product', 'woocommerce' ) ,
-			) );
-	}
+
 	function shop_loop_link($link,$product){
 	    if($product->product_type == 'external'){
 	    	$doc = new DOMDocument();
@@ -96,6 +79,23 @@ class ImprovedExternalProducts {
 		// Return what we found 
 		return $template;
 
+	}
+
+	function javascript_backup(){
+		if(is_product()){
+			?>
+			<script type="text/javascript">
+			jQuery( document ).ready(function( $ ) {
+				if($('div.product-type-external').length > 0){
+					var attr = $('a.single_add_to_cart_button').attr('target');
+					if (typeof attr === typeof undefined || attr === false) {
+					    $('a.single_add_to_cart_button').attr('target','_blank');
+					}
+				}
+			});
+			</script>
+			<?php
+		}
 	}
 }
 $ImprovedExternalProducts = new ImprovedExternalProducts();

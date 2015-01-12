@@ -4,7 +4,7 @@ Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,10 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Tweak: Added jQuery fallback for themes that have edited the WooCommerce core template
+
 = 1.1 =
 
 * Fix: Works on shop pages
@@ -37,6 +41,10 @@ As long as it's been installed and is active, it should work. Please feel free t
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+
+* Tweak: Added jQuery fallback for themes that have edited the WooCommerce core template
 
 = 1.1 =
 
