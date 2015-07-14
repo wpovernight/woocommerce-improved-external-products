@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Improved External Products
 Plugin URI: https://wpovernight.com/
 Description: Opens External/Affiliate products in a new tab.
-Version: 1.1.2
+Version: 1.2
 Author: Jeremiah Prummer
 Author URI: https://wpovernight.com/
 License: GPL2
@@ -25,9 +25,41 @@ class ImprovedExternalProducts {
 	 * Construct.
 	 */
 	public function __construct() {
-		add_filter( 'woocommerce_loop_add_to_cart_link', array(&$this,'shop_loop_link'), 10, 2 );
-		add_filter( 'woocommerce_locate_template', array(&$this,'myplugin_woocommerce_locate_template'), 10, 3 );
-		add_action('wp_footer', array(&$this,'javascript_backup'));
+		if(!class_exists('ImprovedExternalProductsPro')){
+			add_filter( 'woocommerce_loop_add_to_cart_link', array($this,'shop_loop_link'), 10, 2 );
+			add_filter( 'woocommerce_locate_template', array($this,'myplugin_woocommerce_locate_template'), 10, 3 );
+			add_action('wp_footer', array($this,'javascript_backup'));
+		}
+		$this->includes();
+		$this->settings = new ImprovedExternalProducts_Settings();
+
+		// Redirect to the Settings Page
+		// Settings Page URL
+		define("IEPP_SETTINGS_URL", "admin.php?page=iepp_options_page");
+		// Redirect to settings page on activation
+		register_activation_hook(__FILE__, array(&$this,'iepp_activate'));
+		add_action('admin_init', array(&$this,'iepp_redirect'));
+	}
+
+	/**
+	 * Redirect: Make It So
+	 *
+	 */
+	function iepp_activate() {
+		add_option('iepp_do_activation_redirect', true);
+	}
+	
+	function iepp_redirect() {
+		if (get_option('iepp_do_activation_redirect', false)) {
+			delete_option('iepp_do_activation_redirect');
+			if(!isset($_GET['activate-multi'])){
+				wp_redirect(IEPP_SETTINGS_URL);
+			}
+		}
+	}
+
+	function includes(){
+		require_once( 'includes/settings.php' );
 	}
 
 	function shop_loop_link($link,$product){

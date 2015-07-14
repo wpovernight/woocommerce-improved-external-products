@@ -3,8 +3,8 @@ Contributors: jprummer
 Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.0.1
-Tested up to: 4.1
-Stable tag: 1.1.2
+Tested up to: 4.2.2
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,10 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Changelog ==
 
+= 1.2 =
+
+* Added support for Improved External Products Pro
+
 = 1.1.2 =
 
 * Fix: Price symbol did not work in some non-latin languages.
@@ -45,6 +49,10 @@ As long as it's been installed and is active, it should work. Please feel free t
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.2 =
+
+* Added support for Improved External Products Pro
 
 = 1.1.2 =
 
