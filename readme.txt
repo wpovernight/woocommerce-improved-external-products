@@ -14,6 +14,8 @@ Opens links to external/affiliate products in a new tab.
 
 This one-click install will make links to external or affiliate products open in a new tab. Simply install it and click activate. If you decide you don't want the feature, just deactivate it. If you have any other ideas for this plugin, leave a comment at https://www.wpovernight.com/contact
 
+Want an even more awesome experience with external products? Go Pro: https://wpovernight.com/downloads/improved-external-products-pro/
+
 == Installation ==
 
 1. Install the plugin.
@@ -29,7 +31,7 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 = 1.2 =
 
-* Added support for Improved External Products Pro
+* Added support for Improved External Products Pro - https://wpovernight.com/downloads/improved-external-products-pro/
 
 = 1.1.2 =
 
@@ -52,7 +54,7 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 = 1.2 =
 
-* Added support for Improved External Products Pro
+* Added support for Improved External Products Pro - https://wpovernight.com/downloads/improved-external-products-pro/
 
 = 1.1.2 =
 
