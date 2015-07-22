@@ -4,7 +4,7 @@ Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,16 @@ Opens links to external/affiliate products in a new tab.
 This one-click install will make links to external or affiliate products open in a new tab. Simply install it and click activate. If you decide you don't want the feature, just deactivate it. If you have any other ideas for this plugin, leave a comment at https://www.wpovernight.com/contact
 
 Want an even more awesome experience with external products? Go Pro: https://wpovernight.com/downloads/improved-external-products-pro/
+
+Pro Version Includes:
+
+* Ability to open external products in a new tab from product archives
+* Ability to set tab action on a per-product basis
+* Ability to set tab action on a product category basis.
+* Priority Customer Support
+
+**Download the Pro version here - https://wpovernight.com/downloads/improved-external-products-pro/**
+
 
 == Installation ==
 
@@ -29,9 +39,13 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Changelog ==
 
+= 1.2.1 =
+
+* Fix: Added check for category settings to ensure an array was being called in 'in_array()' function
+
 = 1.2 =
 
-* Added support for Improved External Products Pro - https://wpovernight.com/downloads/improved-external-products-pro/
+* Added support for Improved External Products Pro
 
 = 1.1.2 =
 
@@ -52,9 +66,13 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Upgrade Notice ==
 
+= 1.2.1 =
+
+* Fix: Added check for category settings to ensure an array was being called in 'in_array()' function
+
 = 1.2 =
 
-* Added support for Improved External Products Pro - https://wpovernight.com/downloads/improved-external-products-pro/
+* Added support for Improved External Products Pro
 
 = 1.1.2 =
 

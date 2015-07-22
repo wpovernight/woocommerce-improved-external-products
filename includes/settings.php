@@ -493,7 +493,8 @@ class ImprovedExternalProducts_Settings {
 	    	} else {
 	    		$disabled = '';
 	    	}
-	        $checked = in_array($term->term_id, $options['new_tab_by_product_cat']) ? 'checked="checked"' : '';
+	        $category = !empty($options['new_tab_by_product_cat']) ? $options['new_tab_by_product_cat'] : array();
+	        $checked = in_array($term->term_id, $category) ? 'checked="checked"' : '';
 	        $html .= sprintf( '<input type="checkbox" id="%1$s[%4$s][%2$s]" name="%1$s[%4$s][%2$s]" value="%2$s" %3$s %5$s />', $pag, $term->term_id, $checked, $args['id'], $disabled );
 	        $html .= sprintf( '<label for="%1$s[%4$s][%3$s]"> %2$s</label><br>', $pag, $term->name, $term->term_id, $args['id'] );
 	    }

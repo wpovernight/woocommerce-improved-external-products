@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Improved External Products
 Plugin URI: https://wpovernight.com/
 Description: Opens External/Affiliate products in a new tab.
-Version: 1.2
+Version: 1.2.1
 Author: Jeremiah Prummer
 Author URI: https://wpovernight.com/
 License: GPL2
