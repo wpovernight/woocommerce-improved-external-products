@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Improved External Products
 Plugin URI: https://wpovernight.com/
 Description: Opens External/Affiliate products in a new tab.
-Version: 1.2.1
+Version: 1.2.2
 Author: Jeremiah Prummer
 Author URI: https://wpovernight.com/
 License: GPL2
@@ -37,8 +37,15 @@ class ImprovedExternalProducts {
 		// Settings Page URL
 		define("IEPP_SETTINGS_URL", "admin.php?page=iepp_options_page");
 		// Redirect to settings page on activation
-		register_activation_hook(__FILE__, array(&$this,'iepp_activate'));
-		add_action('admin_init', array(&$this,'iepp_redirect'));
+		register_activation_hook(__FILE__, array($this,'iepp_activate'));
+		add_action('admin_init', array($this,'iepp_redirect'));
+
+		$iepp_go_pro_notice = get_option('iepp_go_pro_notice');
+
+		// check for shop plugins
+		if ( $iepp_go_pro_notice != 'hide' && !class_exists('ImprovedExternalProductsPro') ) {
+			add_action( 'admin_notices', array ( $this, 'iepp_notice' ) );
+		}
 	}
 
 	/**
@@ -56,6 +63,13 @@ class ImprovedExternalProducts {
 				wp_redirect(IEPP_SETTINGS_URL);
 			}
 		}
+	}
+
+	/* add admin notice */
+	public function iepp_notice() {
+		$error = __( 'Want more awesome external product support, like variable external products? <strong><a href="https://wpovernight.com/downloads/improved-external-products-pro/">Click Here to go Pro!</a></strong>' , 'iepp' );
+		$message = sprintf('<div class="updated"><p>%1$s <a href="%2$s">%3$s</a></p></div>', $error, add_query_arg( 'hide_iepp_notice', 'true' ), __( 'Hide this notice', 'iepp' ) );
+		echo $message;
 	}
 
 	function includes(){
@@ -132,3 +146,7 @@ class ImprovedExternalProducts {
 	}
 }
 $ImprovedExternalProducts = new ImprovedExternalProducts();
+
+if ( ! empty( $_GET['hide_iepp_notice'] ) ) {
+	update_option( 'iepp_go_pro_notice', 'hide' );
+}

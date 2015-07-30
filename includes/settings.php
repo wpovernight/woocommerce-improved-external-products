@@ -40,8 +40,20 @@ class ImprovedExternalProducts_Settings {
 					'yes'			=> __( 'Open all external products in new tab unless otherwise marked' , 'improvedexternalproducts' ),
 					'no'			=> __( 'Open all products in same tab unless otherwise marked' , 'improvedexternalproducts' )
 				),
-				'default'		=> 'no',
-				'disabled'		=> true
+				'default'		=> 'yes'
+			)
+		);
+
+		add_settings_field(
+			'new_feature_coming_soon',
+			__( 'Coming Soon! (free and pro)', 'improvedexternalproducts' ),
+			array( $this, 'notice_element_callback' ),
+			$option,
+			'plugin_settings',
+			array(
+				'menu'			=> $option,
+				'id'			=> 'new_feature_coming_soon',
+				'description'	=> 'Option to add extra selectors for opening items with urls in a new tab.'
 			)
 		);
 
@@ -507,6 +519,25 @@ class ImprovedExternalProducts_Settings {
 	    }
 	    echo $html;
 
+	}
+
+	/**
+	 * Notice Field Callback
+	 *
+	 * @param  array $args Field arguments.
+	 *
+	 * @return string	  Text field.
+	 */
+	public function notice_element_callback( $args ) {
+		$html = '';
+		$menu = $args['menu'];
+	
+		// Displays option description.
+		if ( isset( $args['description'] ) ) {
+			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+		}
+	
+		echo $html;
 	}
 
 	/**

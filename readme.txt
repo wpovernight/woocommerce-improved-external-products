@@ -4,7 +4,7 @@ Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,10 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Changelog ==
 
+= 1.2.2 =
+
+* Fix: Error where settings were blocked for non-pro users.
+
 = 1.2.1 =
 
 * Fix: Added check for category settings to ensure an array was being called in 'in_array()' function
@@ -65,6 +69,10 @@ As long as it's been installed and is active, it should work. Please feel free t
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+
+* Fix: Error where settings were blocked for non-pro users.
 
 = 1.2.1 =
 
