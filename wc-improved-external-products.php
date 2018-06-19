@@ -1,24 +1,17 @@
 <?php
-/*
-Plugin Name: WooCommerce Improved External Products
-Plugin URI: https://wpovernight.com/
-Description: Opens External/Affiliate products in a new tab.
-Version: 1.4.1
-Author: Jeremiah Prummer
-Author URI: https://wpovernight.com/
-License: GPL2
-*/
-/*  Copyright 2012-2016 Jeremiah Prummer (email : support@wpovernight.com)
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
-    published by the Free Software Foundation.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-*/
-?>
-<?php
+/**
+ * Plugin Name: WooCommerce Improved External Products
+ * Plugin URI: https://wpovernight.com/
+ * Description: Opens External/Affiliate products in a new tab.
+ * Version: 1.5.0
+ * Author: Ewout Fernhout
+ * Author URI: http://www.wpovernight.com
+ * License: GPLv2 or later
+ * License URI: http://www.opensource.org/licenses/gpl-license.php
+ * WC requires at least: 2.6.0
+ * WC tested up to: 3.4.0
+ */
+
 class ImprovedExternalProducts {
 	
 	/**
