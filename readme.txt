@@ -2,9 +2,9 @@
 Contributors: jprummer
 Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
-Requires at least: 3.0.1
-Tested up to: 4.5.1
-Stable tag: 1.4.1
+Requires at least: 3.5
+Tested up to: 4.9
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,9 +35,14 @@ Pro Version Includes:
 
 = Why doesn't this work? =
 
-As long as it's been installed and is active, it should work. Please feel free to report any issues on the support forum here, or at https://www.wpovernight.com/contact (faster response)
+If you are having any issues with this plugin, please feel free to report any them on the [support forum](https://wordpress.org/support/plugin/woocommerce-improved-external-products) or send an email to support@wpovernight.com.
 
 == Changelog ==
+
+= 1.5.0 =
+
+* Improved WooCommerce 3.X compatibility
+* Tested up to WP 4.9
 
 = 1.4.1 =
 
