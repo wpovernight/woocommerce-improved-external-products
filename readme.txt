@@ -3,8 +3,8 @@ Contributors: jprummer
 Donate link:https://www.wpovernight.com/donate
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.0.1
-Tested up to: 4.2.2
-Stable tag: 1.2.2
+Tested up to: 4.5.1
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,24 @@ As long as it's been installed and is active, it should work. Please feel free t
 
 == Changelog ==
 
+= 1.4.1 =
+
+* Fixed minor php error
+* Improved Settings
+* Added Datafeedr information
+
+= 1.4 =
+
+* New code base with minor bug fixes
+
+= 1.3.1 =
+
+* Fixed various minor issues
+
+= 1.3 =
+
+* Tweak: Abandoned template based solution in favor of javascript-based solution.
+
 = 1.2.2 =
 
 * Fix: Error where settings were blocked for non-pro users.
@@ -69,6 +87,24 @@ As long as it's been installed and is active, it should work. Please feel free t
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+
+* Fixed minor php error
+* Improved Settings
+* Added Datafeedr information
+
+= 1.4 =
+
+* New code base with minor bug fixes
+
+= 1.3.1 =
+
+* Fixed various minor issues
+
+= 1.3 =
+
+* Tweak: Abandoned template based solution in favor of javascript-based solution.
 
 = 1.2.2 =
 
