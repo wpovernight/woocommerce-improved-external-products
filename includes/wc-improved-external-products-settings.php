@@ -48,7 +48,7 @@ class ImprovedExternalProducts_Settings {
 					'yes'			=> __( 'Open all external products in new tab by default' , 'improvedexternalproducts' ),
 					'no'			=> __( 'Open all products in same tab by default' , 'improvedexternalproducts' )
 				),
-				'default'		=> 'no'
+				'default'		=> 'no',
 			)
 		);
 
@@ -61,7 +61,7 @@ class ImprovedExternalProducts_Settings {
 			array(
 				'menu'			=> $option,
 				'id'			=> 'custom_single_button_html',
-				'default'		=> '<a href="{product_url}" rel="nofollow" class="single_add_to_cart_button button alt" target="{target}">{button_text}</a>'
+				'default'		=> '<a href="{product_url}" rel="nofollow" class="single_add_to_cart_button button alt" target="{target}">{button_text}</a>',
 			)
 		);
 
@@ -85,7 +85,7 @@ class ImprovedExternalProducts_Settings {
 				'menu'			=> $option,
 				'id'			=> 'new_tab_by_product_cat',
 				'default'		=> 'yes',
-				'disabled'		=> true
+				'disabled'		=> true,
 			)
 		);
 
@@ -103,7 +103,7 @@ class ImprovedExternalProducts_Settings {
 					'yes'			=> __( 'Link Image to External Product from Category' , 'improvedexternalproducts' )
 				),
 				'default'		=> 'no',
-				'disabled'		=> true
+				'disabled'		=> true,
 			)
 		);
 
@@ -121,7 +121,7 @@ class ImprovedExternalProducts_Settings {
 					'yes'			=> __( 'Link Add to Cart Button to External Product from Category' , 'improvedexternalproducts' )
 				),
 				'default'		=> 'yes',
-				'disabled'		=> true
+				'disabled'		=> true,
 			)
 		);
 
@@ -134,8 +134,8 @@ class ImprovedExternalProducts_Settings {
 			array(
 				'menu'			=> $option,
 				'id'			=> 'variation_custom_single_button_html',
-				'default'       => '<a href="{product_url}" rel="nofollow" class="single_add_to_cart_button button alt" target="{target}">{button_text}</a>'
-				'disabled'		=> true
+				'default'       => '<a href="{product_url}" rel="nofollow" class="single_add_to_cart_button button alt" target="{target}">{button_text}</a>',
+				'disabled'		=> true,
 			)
 		);
 
@@ -149,7 +149,7 @@ class ImprovedExternalProducts_Settings {
 				'menu'			=> $option,
 				'id'			=> 'shop_category_image_selector',
 				'default'       => "item.closest('.product').find('a').not('.add_to_cart_button').has('img')",
-				'disabled'		=> true
+				'disabled'		=> true,
 			)
 		);
 
@@ -163,7 +163,7 @@ class ImprovedExternalProducts_Settings {
 				'menu'			=> $option,
 				'id'			=> 'shop_category_button_selector',
 				'default'       => "item.closest('.product').find('a.add_to_cart_button')",
-				'disabled'		=> true
+				'disabled'		=> true,
 			)
 		);
 
