@@ -134,7 +134,7 @@ class ImprovedExternalProducts_Settings {
 			array(
 				'menu'			=> $option,
 				'id'			=> 'variation_custom_single_button_html',
-				'default'		=> "<a href=\"'+button_url+'\" class=\"single_add_to_cart_button button alt external test\">'+button_text+'</a>",
+				'default'       => '<a href="{product_url}" rel="nofollow" class="single_add_to_cart_button button alt" target="{target}">{button_text}</a>'
 				'disabled'		=> true
 			)
 		);
@@ -148,7 +148,7 @@ class ImprovedExternalProducts_Settings {
 			array(
 				'menu'			=> $option,
 				'id'			=> 'shop_category_image_selector',
-				'default'		=> "item.parents('a')",
+				'default'       => "item.closest('.product').find('a').not('.add_to_cart_button').has('img')",
 				'disabled'		=> true
 			)
 		);
@@ -162,7 +162,7 @@ class ImprovedExternalProducts_Settings {
 			array(
 				'menu'			=> $option,
 				'id'			=> 'shop_category_button_selector',
-				'default'		=> "item.parents('a').next('a')",
+				'default'       => "item.closest('.product').find('a.add_to_cart_button')",
 				'disabled'		=> true
 			)
 		);
