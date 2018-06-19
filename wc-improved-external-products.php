@@ -84,17 +84,18 @@ class ImprovedExternalProducts {
 	/**
 	 * Output the external product add to cart area.
 	 *
-	 * @subpackage	Product
+	 * @subpackage  Product
 	 */
 	function iepp_external_add_to_cart() {
 		global $product;
-		if ( ! $product->add_to_cart_url() ) {
+		$product = wc_get_product($product);
+		$product_url = $product->get_product_url();
+		$button_text = $product->single_add_to_cart_text();
+		if ( ! $product_url || ! $button_text  ) {
 			return;
 		}
 
-		$product_url = $product->add_to_cart_url();
-		$button_text = $product->single_add_to_cart_text();
-		$target = $this->determine_link_target($product->id);
+		$target = $this->determine_link_target( $this->get_product_id( $product ) );
 		$price_html = $product->get_price_html();
 		if($target == true){
 			$target = '_blank';
@@ -138,11 +139,11 @@ class ImprovedExternalProducts {
 		//$extra_selectors = $options['additional_javascript_selectors'];
 		/* Add code to product page */
 		if(is_product()){
-			$product = get_product(get_the_ID());
+			$product = wc_get_product(get_the_ID());
 
 			/* If the product is external */
 			if($product->is_type( 'external' )){
-				if($this->determine_link_target($product->id) == true){
+				if($this->determine_link_target( $this->get_product_id( $product ) ) == true){
 					$target = '_blank';
 				} else {
 					$target = '';
@@ -163,6 +164,11 @@ class ImprovedExternalProducts {
 
 	function determine_link_target($product_id){
 		return true;
+	}
+
+	// Backwards compatible product ID getter for WC2.6 and older
+	function get_product_id( $product ) {
+		return method_exists( $product, 'get_id') ? $product->get_id() : $product->id;
 	}
 	
 }
