@@ -182,25 +182,14 @@ class ImprovedExternalProducts_Settings {
 	 * Add menu page
 	*/
 	public function iepp_add_page() {
-		if (class_exists('WPOvernight_Core')) {
-			$improvedexternalproducts_page = add_submenu_page(
-				'wpo-core-menu',
-				__( 'Improved External Products', 'improvedexternalproducts' ),
-				__( 'Improved External Products', 'improvedexternalproducts' ),
-				'manage_options',
-				'iepp_options_page',
-				array( $this, 'improvedexternalproducts_options_do_page' )
-			);
-		} else {
-			$improvedexternalproducts_page = add_submenu_page(
-				'options-general.php',
-				__( 'Improved External Products', 'improvedexternalproducts' ),
-				__( 'Improved External Products', 'improvedexternalproducts' ),
-				'manage_options',
-				'iepp_options_page',
-				array( $this, 'improvedexternalproducts_options_do_page' )
-			);
-		}
+		$improvedexternalproducts_page = add_submenu_page(
+			'woocommerce',
+			__( 'Improved External Products', 'woocommerce-improved-external-products' ),
+			__( 'Improved External Products', 'woocommerce-improved-external-products' ),
+			'manage_options',
+			'iepp_options_page',
+			array( $this, 'improvedexternalproducts_options_do_page' )
+		);
 		add_action( 'admin_print_styles-' . $improvedexternalproducts_page, array( &$this, 'improvedexternalproducts_admin_styles' ) );
 	}
 
