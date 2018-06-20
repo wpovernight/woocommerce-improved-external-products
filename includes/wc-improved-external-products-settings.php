@@ -12,7 +12,7 @@ class ImprovedExternalProducts_Settings {
 	 */
 	public function init_settings() {
 
-		$option = 'improvedexternalproducts';
+		$option = 'woocommerce-improved-external-products';
 	
 		// Create option in wp_options.
 		if ( false == get_option( $option ) ) {
@@ -22,14 +22,14 @@ class ImprovedExternalProducts_Settings {
 		// Template Selection Section.
 		add_settings_section(
 			'plugin_settings',
-			__( 'Select Your Options', 'improvedexternalproducts' ),
+			__( 'Select Your Options', 'woocommerce-improved-external-products' ),
 			array( $this, 'section_options_callback' ),
 			$option
 		);
 
 		add_settings_field(
 			'standard_free_settings_header',
-			__( 'Standard Settings', 'improvedexternalproducts' ),
+			__( 'Standard Settings', 'woocommerce-improved-external-products' ),
 			array( $this, 'heading_element_callback' ),
 			$option,
 			'plugin_settings'
@@ -37,7 +37,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'default_option_for_new_tab',
-			__( 'Default setting for external products', 'improvedexternalproducts' ),
+			__( 'Default setting for external products', 'woocommerce-improved-external-products' ),
 			array( $this, 'radio_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -45,8 +45,8 @@ class ImprovedExternalProducts_Settings {
 				'menu'			=> $option,
 				'id'			=> 'default_option_for_new_tab',
 				'options' 		=> array(
-					'yes'			=> __( 'Open all external products in new tab by default' , 'improvedexternalproducts' ),
-					'no'			=> __( 'Open all products in same tab by default' , 'improvedexternalproducts' )
+					'yes'			=> __( 'Open all external products in new tab by default' , 'woocommerce-improved-external-products' ),
+					'no'			=> __( 'Open all products in same tab by default' , 'woocommerce-improved-external-products' )
 				),
 				'default'		=> 'no',
 			)
@@ -54,7 +54,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'custom_single_button_html',
-			__( 'Custom Single Product Button HTML', 'improvedexternalproducts' ),
+			__( 'Custom Single Product Button HTML', 'woocommerce-improved-external-products' ),
 			array( $this, 'textarea_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -69,7 +69,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'pro_settings_header',
-			__( 'Pro Settings', 'improvedexternalproducts' ),
+			__( 'Pro Settings', 'woocommerce-improved-external-products' ),
 			array( $this, 'heading_element_callback' ),
 			$option,
 			'plugin_settings'
@@ -77,7 +77,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'new_tab_by_product_cat',
-			__( 'Check categories to open in new tab', 'improvedexternalproducts' ),
+			__( 'Check categories to open in new tab', 'woocommerce-improved-external-products' ),
 			array( $this, 'multicheckbox_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -91,7 +91,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'category_image_options',
-			__( 'Category Page Image Link', 'improvedexternalproducts' ),
+			__( 'Category Page Image Link', 'woocommerce-improved-external-products' ),
 			array( $this, 'radio_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -99,8 +99,8 @@ class ImprovedExternalProducts_Settings {
 				'menu'			=> $option,
 				'id'			=> 'category_image_options',
 				'options' 		=> array(
-					'no'			=> __( 'Link Image to Product Page from Category' , 'improvedexternalproducts' ),
-					'yes'			=> __( 'Link Image to External Product from Category' , 'improvedexternalproducts' )
+					'no'			=> __( 'Link Image to Product Page from Category' , 'woocommerce-improved-external-products' ),
+					'yes'			=> __( 'Link Image to External Product from Category' , 'woocommerce-improved-external-products' )
 				),
 				'default'		=> 'no',
 				'disabled'		=> true,
@@ -109,7 +109,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'category_button_options',
-			__( 'Category Page Button Link', 'improvedexternalproducts' ),
+			__( 'Category Page Button Link', 'woocommerce-improved-external-products' ),
 			array( $this, 'radio_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -117,8 +117,8 @@ class ImprovedExternalProducts_Settings {
 				'menu'			=> $option,
 				'id'			=> 'category_button_options',
 				'options' 		=> array(
-					'no'			=> __( 'Link Add to Cart Button to Product Page from Category' , 'improvedexternalproducts' ),
-					'yes'			=> __( 'Link Add to Cart Button to External Product from Category' , 'improvedexternalproducts' )
+					'no'			=> __( 'Link Add to Cart Button to Product Page from Category' , 'woocommerce-improved-external-products' ),
+					'yes'			=> __( 'Link Add to Cart Button to External Product from Category' , 'woocommerce-improved-external-products' )
 				),
 				'default'		=> 'yes',
 				'disabled'		=> true,
@@ -127,7 +127,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'variation_custom_single_button_html',
-			__( 'Variation Custom Single Product Button HTML', 'improvedexternalproducts' ),
+			__( 'Variation Custom Single Product Button HTML', 'woocommerce-improved-external-products' ),
 			array( $this, 'textarea_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -141,7 +141,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'shop_category_image_selector',
-			__( 'Selector for product images on category page (change only if category image settings are not working)', 'improvedexternalproducts' ),
+			__( 'Selector for product images on category page (change only if category image settings are not working)', 'woocommerce-improved-external-products' ),
 			array( $this, 'text_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -155,7 +155,7 @@ class ImprovedExternalProducts_Settings {
 
 		add_settings_field(
 			'shop_category_button_selector',
-			__( 'Selector for product button on category page (change only if category button settings are not working)', 'improvedexternalproducts' ),
+			__( 'Selector for product button on category page (change only if category button settings are not working)', 'woocommerce-improved-external-products' ),
 			array( $this, 'text_element_callback' ),
 			$option,
 			'plugin_settings',
@@ -228,22 +228,22 @@ class ImprovedExternalProducts_Settings {
 		?>
 		<div class="wrap">
 			<div class="icon32" id="icon-options-general"><br /></div>
-			<h2><?php _e('Improved External Products','improvedexternalproducts') ?></h2>
+			<h2><?php _e('Improved External Products','woocommerce-improved-external-products') ?></h2>
 			
 			<?php if (!class_exists('ImprovedExternalProductsPro')){ ?>
 			<div class="wcpdf-extensions-ad">
 				<img src="<?php echo plugins_url( 'assets/images/wpo-helper.png', dirname(__FILE__) ); ?>" class="wpo-helper">
 				<ul class="extensions">
 					<li>
-						<?php _e('Go Pro: Get Improved External Products Pro!', 'improvedexternalproducts')?>
+						<?php _e('Go Pro: Get Improved External Products Pro!', 'woocommerce-improved-external-products')?>
 						<div class="more">
-						<?php _e( 'Supercharge Improved External Products with the following features:', 'improvedexternalproducts' ); ?>
+						<?php _e( 'Supercharge Improved External Products with the following features:', 'woocommerce-improved-external-products' ); ?>
 						<ul>
-							<li><?php _e('Open in new tab or current tab on a product level.','improvedexternalproducts') ?></li>
-							<li><?php _e('Open in new tab or current tab on a category level.','improvedexternalproducts') ?></li>
-							<li><?php _e('Setup variable external products.','improvedexternalproducts') ?>*</li>
+							<li><?php _e('Open in new tab or current tab on a product level.','woocommerce-improved-external-products') ?></li>
+							<li><?php _e('Open in new tab or current tab on a category level.','woocommerce-improved-external-products') ?></li>
+							<li><?php _e('Setup variable external products.','woocommerce-improved-external-products') ?></li>
 						</ul>
-						<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php _e("Get Improved External Products Pro!", 'improvedexternalproducts'); ?></a>
+						<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php _e("Get Improved External Products Pro!", 'woocommerce-improved-external-products'); ?></a>
 						</div>
 					</li>
 				</ul>
@@ -325,13 +325,13 @@ class ImprovedExternalProducts_Settings {
 			global $options;
 			$sections = get_option('improvedexternalproducts_sections');
 			//print_r($sections);
-			//$option = get_option('improvedexternalproducts');
+			//$option = get_option('woocommerce-improved-external-products');
 			//print_r($option); //for debugging
 			?>
 			<form method="post" action="options.php">
 				<?php 
-					settings_fields( 'improvedexternalproducts' );
-					do_settings_sections( 'improvedexternalproducts' );
+					settings_fields( 'woocommerce-improved-external-products' );
+					do_settings_sections( 'woocommerce-improved-external-products' );
 					submit_button();
 				?>
 				<div id="datafeedr-intro">
@@ -405,7 +405,7 @@ class ImprovedExternalProducts_Settings {
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
-			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'improvedexternalproducts') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
@@ -445,7 +445,7 @@ class ImprovedExternalProducts_Settings {
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
-			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'improvedexternalproducts') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
@@ -599,7 +599,7 @@ class ImprovedExternalProducts_Settings {
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
-			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'improvedexternalproducts') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
@@ -631,14 +631,14 @@ class ImprovedExternalProducts_Settings {
 			$radios .= sprintf( '<td style="padding-top:0" align="center"><input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s /></td>', $menu, $id, $key, checked( $current, $key, false ) );
 		}
 		$html = '<table><tr>'.$icons.'</tr><tr>'.$radios.'</tr></table>';
-		$html .= '<p class="description"><i>'. __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','improvedexternalproducts').'</p>';
+		$html .= '<p class="description"><i>'. __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','woocommerce-improved-external-products').'</p>';
 		
 		echo $html;
 	}
 
 	function multicheckbox_element_callback( $args ) {
-	    $options    = get_option('improvedexternalproducts');
-	    $pag        = 'improvedexternalproducts';
+	    $options    = get_option('woocommerce-improved-external-products');
+	    $pag        = 'woocommerce-improved-external-products';
 	    $_cats      = get_terms( 'product_cat' );
 	    $html       = '';
 
@@ -656,7 +656,7 @@ class ImprovedExternalProducts_Settings {
 
 	    $html .= sprintf( '<span class="description"> %s</span>', '' );
 	    if(!class_exists('ImprovedExternalProductsPro')){
-		    $html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'improvedexternalproducts') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+		    $html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 	    }
