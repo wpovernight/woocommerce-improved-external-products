@@ -32,8 +32,10 @@ class ImprovedExternalProducts {
 		add_action('wp_loaded',array($this,'includes'));
 
 		add_action('init',array($this,'modify_external_product_links'));
+		
 		// Display the admin notification
-		add_action( 'admin_notices', array( $this, 'plugin_activation' ) ) ;
+		add_action( 'admin_notices', array( $this, 'go_pro_notice' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'backend_scripts_styles' ) );
 	}
 
 	/**
@@ -45,27 +47,60 @@ class ImprovedExternalProducts {
 	}
 
 	/**
-	 * Saves the version of the plugin to the database and displays an activation notice on where users
-	 * can access the new options.
+	 * Shows a notice for the Pro version on the order admin pages
 	 */
-	function plugin_activation() {
+	function go_pro_notice() {
+		if ( !isset($GLOBALS['post_type']) || !in_array( $GLOBALS['post_type'], array('shop_order','product') ) ) {
+			return;
+		}
+		
+		if ( get_option( 'wpo_iepp_pro_notice_dismissed' ) !== false || get_option( 'iepp_go_pro_notice' ) == 'gopro' ) {
+			return;
+		} else {
+			if ( isset( $_GET['wpo_iepp_dismis_pro'] ) ) {
+				update_option( 'wpo_iepp_pro_notice_dismissed', true );
+				return;
+			}
 
-		if( 'gopro' != get_option( 'iepp_go_pro_notice' ) ) {
+			// keep track of how many days this notice is show so we can remove it after 7 days
+			$notice_shown_on = get_option( 'wpo_iepp_pro_notice_shown', array() );
+			$today = date('Y-m-d');
+			if ( !in_array($today, $notice_shown_on) ) {
+				$notice_shown_on[] = $today;
+				update_option( 'wpo_iepp_pro_notice_shown', $notice_shown_on );
+			}
+			// count number of days pro is shown, dismiss forever if shown more than 7
+			if (count($notice_shown_on) > 7) {
+				update_option( 'wpo_iepp_pro_notice_dismissed', true );
+				return;
+			}
 
-			add_option( 'iepp_go_pro_notice', 'gopro' );
+			?>
+			<div class="notice notice-info is-dismissible wpo-iepp-pro-notice">
+				<h3><?php _e( 'Thank you for using Improved External Products! Check out our pro version:', 'woocommerce-improved-external-products' ); ?></h3>
+				<ul class="ul-square">
+					<li><?php _e( 'Ability to open external products in a new tab from product archives', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php _e( 'Set tab action on a per-product basis', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php _e( 'Set tab action on a product category basis', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php _e( 'Priority Customer Support', 'woocommerce-improved-external-products' ) ?></li>
+				</ul>
+				<p><a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php _e( 'Click here to go Pro now!', 'woocommerce-improved-external-products' ) ?></a></p>
+				<p><a href="<?php echo esc_url( add_query_arg( 'wpo_iepp_dismis_pro', true ) ); ?>" class="wpo-iepp-dismiss"><?php _e( 'Dismiss this notice', 'woocommerce-improved-external-products' ); ?></a></p>
+			</div>
+			<?php
+		}
+	}
 
-			$html = '<div class="notice-success is-dismissible">';
-				$html .= '<p>';
-					$html .= 'Thank you for using Improved External Products. Check out our pro version! <a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank">Click to Go Pro!</a>.';
-				$html .= '</p>';
-			$html .= '</div>';
+	function backend_scripts_styles() {
+		if ( isset($GLOBALS['post_type']) && in_array( $GLOBALS['post_type'], array('shop_order','product') ) ) {
+			wp_enqueue_script(
+				'wpo-iepp-admin',
+				untrailingslashit( plugins_url( '/', __FILE__ ) ) . '/assets/js/admin-script.js',
+				array( 'jquery' )
+			);
+		}
+	}
 
-			echo $html;
-
-		} // end if
-
-	} // end plugin_activation
-	
 	function iepp_redirect() {
 		if (get_option('iepp_do_activation_redirect', false)) {
 			delete_option('iepp_do_activation_redirect');
