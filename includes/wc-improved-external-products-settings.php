@@ -243,7 +243,7 @@ class ImprovedExternalProducts_Settings {
 			
 			<?php if (!class_exists('ImprovedExternalProductsPro')){ ?>
 			<div class="wcpdf-extensions-ad">
-				<img src="<?php echo plugins_url( 'images/wpo-helper.png', __FILE__ ); ?>" class="wpo-helper">
+				<img src="<?php echo plugins_url( 'assets/images/wpo-helper.png', dirname(__FILE__) ); ?>" class="wpo-helper">
 				<ul class="extensions">
 					<li>
 						<?php _e('Go Pro: Get Improved External Products Pro!', 'improvedexternalproducts')?>
@@ -346,7 +346,7 @@ class ImprovedExternalProducts_Settings {
 					submit_button();
 				?>
 				<div id="datafeedr-intro">
-					<a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_0_3_7"><img src="<?php echo plugins_url( 'images/datafeedr.png', __FILE__ ); ?>"></a>
+					<a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_0_3_7"><img src="<?php echo plugins_url( 'assets/images/datafeedr.png', dirname(__FILE__) ); ?>"></a>
 					<h3>Supercharge your Affiliate Store with Datafeedr</h3>
 					<div>
 						<p>Are you looking for a great way to easily add affiliate products to a new or existing WooCommerce affiliate store?</p>
