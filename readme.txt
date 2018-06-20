@@ -4,7 +4,8 @@ Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.5
 Tested up to: 4.9
-Stable tag: 1.5.0
+Stable tag: 1.5.1
+Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +13,9 @@ Opens links to external/affiliate products in a new tab.
 
 == Description ==
 
-This one-click install will make links to external or affiliate products open in a new tab. Simply install it and click activate. If you decide you don't want the feature, just deactivate it. If you have any other ideas for this plugin, leave a comment at https://www.wpovernight.com/contact
+This one-click install will make links to external or affiliate products open in a new tab. Simply install it and click activate. If you decide you don't want the feature, just deactivate it. If you have any other ideas for this plugin, send us an email at support@wpovernight.com
 
-Want an even more awesome experience with external products? Go Pro: https://wpovernight.com/downloads/improved-external-products-pro/
+Want an even more awesome experience with external products? Check out [Improved External Products Pro](https://wpovernight.com/downloads/improved-external-products-pro/)
 
 Pro Version Includes:
 
@@ -23,7 +24,7 @@ Pro Version Includes:
 * Ability to set tab action on a product category basis.
 * Priority Customer Support
 
-**Download the Pro version here - https://wpovernight.com/downloads/improved-external-products-pro/**
+**Download the Pro version here - [Improved External Products Pro](https://wpovernight.com/downloads/improved-external-products-pro/)**
 
 
 == Installation ==
@@ -38,6 +39,10 @@ Pro Version Includes:
 If you are having any issues with this plugin, please feel free to report any them on the [support forum](https://wordpress.org/support/plugin/woocommerce-improved-external-products) or send an email to support@wpovernight.com.
 
 == Changelog ==
+
+= 1.5.1 (2018-06-20) =
+
+* Fix dismissing pro notice
 
 = 1.5.0 (2018-06-19) =
 
