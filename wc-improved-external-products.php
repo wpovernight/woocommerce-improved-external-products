@@ -9,7 +9,7 @@
  * License: GPLv2 or later
  * License URI: http://www.opensource.org/licenses/gpl-license.php
  * WC requires at least: 2.6.0
- * WC tested up to: 3.8.0
+ * WC tested up to: 3.9.0
  */
 
 class ImprovedExternalProducts {
