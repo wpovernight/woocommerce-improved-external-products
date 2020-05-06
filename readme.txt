@@ -4,7 +4,7 @@ Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.5
 Tested up to: 5.4
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,8 +40,10 @@ If you are having any issues with this plugin, please feel free to report any th
 
 == Changelog ==
 
-= 1.5.5 (2020-04-02) =
+= 1.5.6 (2020-05-06) =
+* Tested up to WooCommerce 4.1
 
+= 1.5.5 (2020-04-02) =
 * Tested up to WP5.4 and WooCommerce 4.0
 
 = 1.5.4 (2020-01-22) =
