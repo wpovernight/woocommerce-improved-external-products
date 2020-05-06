@@ -45,119 +45,55 @@ If you are having any issues with this plugin, please feel free to report any th
 * Tested up to WP5.4 and WooCommerce 4.0
 
 = 1.5.4 (2020-01-22) =
-
 * Tested up to WooCommerce 3.9
 
 = 1.5.3 (2019-10-30) =
-
 * Tested up to WooCommerce 3.8 & WP 5.3
 
 = 1.5.2 (2019-02-27) =
-
 * Tested up to WP 5.1
 
-
 = 1.5.1 (2018-06-20) =
-
 * Fix dismissing pro notice
 
 = 1.5.0 (2018-06-19) =
-
 * Improved WooCommerce 3.X compatibility
 * Tested up to WP 4.9
 
 = 1.4.1 (2016-04-27) =
-
 * Fixed minor php error
 * Improved Settings
 * Added Datafeedr information
 
 = 1.4 (2016-04-23) =
-
 * New code base with minor bug fixes
 
 = 1.3.1 (2016-01-13) =
-
 * Fixed various minor issues
 
 = 1.3 (2016-01-12) =
-
 * Tweak: Abandoned template based solution in favor of javascript-based solution.
 
 = 1.2.2 (2015-07-30) =
-
 * Fix: Error where settings were blocked for non-pro users.
 
 = 1.2.1 (2015-07-22) =
-
 * Fix: Added check for category settings to ensure an array was being called in 'in_array()' function
 
 = 1.2 (2015-07-14) =
-
 * Added support for Improved External Products Pro
 
 = 1.1.2 (2015-01-22) =
-
 * Fix: Price symbol did not work in some non-latin languages.
 
 = 1.1.1 (2015-01-12) =
-
 * Tweak: Added jQuery fallback for themes that have edited the WooCommerce core template
 
 = 1.1 (2015-01-11) =
-
 * Fix: Works on shop pages
 * Tweak: Improvements for WooCommerce 2.0+
 
 = 1.0.1 (2012-12-29) = 
-
 * Initial Release
 
 == Upgrade Notice ==
-
-= 1.4.1 =
-
-* Fixed minor php error
-* Improved Settings
-* Added Datafeedr information
-
-= 1.4 =
-
-* New code base with minor bug fixes
-
-= 1.3.1 =
-
-* Fixed various minor issues
-
-= 1.3 =
-
-* Tweak: Abandoned template based solution in favor of javascript-based solution.
-
-= 1.2.2 =
-
-* Fix: Error where settings were blocked for non-pro users.
-
-= 1.2.1 =
-
-* Fix: Added check for category settings to ensure an array was being called in 'in_array()' function
-
-= 1.2 =
-
-* Added support for Improved External Products Pro
-
-= 1.1.2 =
-
-* Fix: Price symbol did not work in some non-latin languages.
-
-= 1.1.1 =
-
-* Tweak: Added jQuery fallback for themes that have edited the WooCommerce core template
-
-= 1.1 =
-
-* Fix: Works on shop pages
-* Tweak: Improvements for WooCommerce 2.0+
-
-= 1.0.1 = 
-
-* Initial Release
