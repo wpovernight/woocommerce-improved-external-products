@@ -14,10 +14,13 @@
 
 class ImprovedExternalProducts {
 	
+	protected $plugin_version = '1.5.6';
+
 	/**
 	 * Construct.
 	 */
 	public function __construct() {
+		$this->define( 'WC_IEP_VERSION', $this->plugin_version );
 		
 		// Print the js
 		add_action( 'wp_footer', array($this,'add_js_to_footer') );
@@ -96,7 +99,8 @@ class ImprovedExternalProducts {
 			wp_enqueue_script(
 				'wpo-iepp-admin',
 				untrailingslashit( plugins_url( '/', __FILE__ ) ) . '/assets/js/admin-script.js',
-				array( 'jquery' )
+				array( 'jquery' ),
+				WC_IEP_VERSION
 			);
 		}
 	}
