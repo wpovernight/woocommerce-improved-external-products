@@ -262,42 +262,11 @@ class ImprovedExternalProducts_Settings {
 					margin: 0;
 				}
 				.improved-external-products-pro-ad ul {
+					list-style-type: square;
 					margin: 0;
 					margin-left: 1.5em;
-				}
-				.improved-external-products-pro-ad .extensions li {
-					margin: 0;
-				}
-				.improved-external-products-pro-ad ul {
-					list-style-type: square;
-					margin-top: 0.5em;
-					margin-bottom: 0.5em;
-				}
-				.improved-external-products-pro-ad .extensions > li:before { 
-					content: "";
-					border-color: transparent transparent transparent #111;
-					border-style: solid;
-					border-width: 0.35em 0.35em 0.35em 0.45em;
-					display: block;
-					height: 0;
-					width: 0;
-					left: -1em;
-					top: 0.9em;
-					position: relative;
-				}
-				.improved-external-products-pro-ad .extensions .expanded:before {
-					border-color: #111 transparent transparent transparent;
-					left: -1.17em;
-					border-width: 0.45em 0.45em 0.35em 0.35em !important;
-				}
-				.improved-external-products-pro-ad .extensions .more {
-					padding: 10px;
-					background-color: white;
-					border: 1px solid #ccc;
-					border-radius: 5px;
-				}
-				.improved-external-products-pro-ad .extensions table td {
-					vertical-align: top;
+					margin-top: 1em;
+					margin-bottom: 1.5em;
 				}
 				ul#datafeedr li:before{
 				    content: '✔';   
