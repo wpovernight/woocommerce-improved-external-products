@@ -231,25 +231,18 @@ class ImprovedExternalProducts_Settings {
 			<h2><?php _e('Improved External Products','woocommerce-improved-external-products') ?></h2>
 			
 			<?php if (!class_exists('ImprovedExternalProductsPro')){ ?>
-			<div class="wcpdf-extensions-ad">
+			<div class="improved-external-products-pro-ad">
 				<img src="<?php echo plugins_url( 'assets/images/wpo-helper.png', dirname(__FILE__) ); ?>" class="wpo-helper">
-				<ul class="extensions">
-					<li>
-						<?php _e('Go Pro: Get Improved External Products Pro!', 'woocommerce-improved-external-products')?>
-						<div class="more">
-						<?php _e( 'Supercharge Improved External Products with the following features:', 'woocommerce-improved-external-products' ); ?>
-						<ul>
-							<li><?php _e('Open in new tab or current tab on a product level.','woocommerce-improved-external-products') ?></li>
-							<li><?php _e('Open in new tab or current tab on a category level.','woocommerce-improved-external-products') ?></li>
-							<li><?php _e('Setup variable external products.','woocommerce-improved-external-products') ?></li>
-						</ul>
-						<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php _e("Get Improved External Products Pro!", 'woocommerce-improved-external-products'); ?></a>
-						</div>
-					</li>
+				<h3><?php _e( 'Supercharge Improved External Products with the following features:', 'woocommerce-improved-external-products' ); ?></h3>
+				<ul>
+					<li><?php _e('Open in new tab or current tab on a product level.','woocommerce-improved-external-products') ?></li>
+					<li><?php _e('Open in new tab or current tab on a category level.','woocommerce-improved-external-products') ?></li>
+					<li><?php _e('Setup variable external products.','woocommerce-improved-external-products') ?></li>
 				</ul>
+				<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"class="button button-primary"><?php _e("Get Improved External Products Pro!", 'woocommerce-improved-external-products'); ?></a>
 			</div>
 			<style>
-				.wcpdf-extensions-ad {
+				.improved-external-products-pro-ad {
 					position: relative;
 					min-height: 90px;
 					border: 1px solid #3D5C99;
@@ -262,25 +255,25 @@ class ImprovedExternalProducts_Settings {
 				}
 				img.wpo-helper {
 					position: absolute;
-					top: -20px;
+					bottom: 0;
 					left: 3px;
 				}
-				.wcpdf-extensions-ad h3 {
+				.improved-external-products-pro-ad h3 {
 					margin: 0;
 				}
-				.wcpdf-extensions-ad ul {
+				.improved-external-products-pro-ad ul {
 					margin: 0;
 					margin-left: 1.5em;
 				}
-				.extensions li {
+				.improved-external-products-pro-ad .extensions li {
 					margin: 0;
 				}
-				.extensions li ul {
+				.improved-external-products-pro-ad ul {
 					list-style-type: square;
 					margin-top: 0.5em;
 					margin-bottom: 0.5em;
 				}
-				.extensions > li:before { 
+				.improved-external-products-pro-ad .extensions > li:before { 
 					content: "";
 					border-color: transparent transparent transparent #111;
 					border-style: solid;
@@ -292,18 +285,18 @@ class ImprovedExternalProducts_Settings {
 					top: 0.9em;
 					position: relative;
 				}
-				.extensions .expanded:before {
+				.improved-external-products-pro-ad .extensions .expanded:before {
 					border-color: #111 transparent transparent transparent;
 					left: -1.17em;
 					border-width: 0.45em 0.45em 0.35em 0.35em !important;
 				}
-				.extensions .more {
+				.improved-external-products-pro-ad .extensions .more {
 					padding: 10px;
 					background-color: white;
 					border: 1px solid #ccc;
 					border-radius: 5px;
 				}
-				.extensions table td {
+				.improved-external-products-pro-ad .extensions table td {
 					vertical-align: top;
 				}
 				ul#datafeedr li:before{
