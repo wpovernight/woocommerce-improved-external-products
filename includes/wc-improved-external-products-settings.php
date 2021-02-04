@@ -298,28 +298,30 @@ class ImprovedExternalProducts_Settings {
 				?>
 				<div id="datafeedr-intro">
 					<a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_0_3_7"><img src="<?php echo plugins_url( 'assets/images/datafeedr.png', dirname(__FILE__) ); ?>"></a>
-					<h3>Supercharge your Affiliate Store with Datafeedr</h3>
+					<h3><?php _e( 'Supercharge your Affiliate Store with Datafeedr</h3>','woocommerce-improved-external-products' ); ?>
 					<div>
-						<p>Are you looking for a great way to easily add affiliate products to a new or existing WooCommerce affiliate store?</p>
-						<p>Then checkout one of our partners <a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_0_3_7" target="_blank" rel="nofollow">Datafeedr</a>!</p>
-						<p>They have a great <a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_7_3_11" target="_blank" rel="nofollow">affiliate integration for WooCommerce</a> that plays well with our external products plugin.</p>
-						<p>Subscriptions for Datafeedr start at just $29/month</p>
-						<p>With your subscription you get:</p>
+						<p><?php _e( 'Are you looking for a great way to easily add affiliate products to a new or existing WooCommerce affiliate store?','woocommerce-improved-external-products' ); ?></p>
+						<p><?php _e( 'Then checkout one of our partners','woocommerce-improved-external-products' ); ?> <a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_0_3_7" target="_blank" rel="nofollow">Datafeedr</a>!</p>
+						<p><?php echo wp_sprintf( 
+							// translators: 1 & 2: <a> tags
+							__( 'They have a great %1$saffiliate integration for WooCommerce%2$s that plays well with our external products plugin.','woocommerce-improved-external-products' ), '<a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_7_3_11" target="_blank" rel="nofollow">', '</a>' ); ?></p>
+						<p><?php _e( 'Subscriptions for Datafeedr start at just $29/month','woocommerce-improved-external-products' ); ?></p>
+						<p><?php _e( 'With your subscription you get:','woocommerce-improved-external-products' ); ?></p>
 						<ul id="datafeedr">
-							<li>Access to 360+ million products</li>
-							<li>12,000+ merchants</li>
-							<li>30+ affiliate networks</li>
-							<li>Automatic product updates (updating, adding, removing, etc.)</li>
-							<li>Easy product importing (no feeds to download, no coding required)</li>
-							<li>Cloaked affiliate links</li>
-							<li><a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_8_3_12" target="_blank" rel="nofollow">and much more...</a></li>
+							<li><?php _e( 'Access to 360+ million products','woocommerce-improved-external-products' ); ?></li>
+							<li><?php _e( '12,000+ merchants','woocommerce-improved-external-products' ); ?></li>
+							<li><?php _e( '30+ affiliate networks','woocommerce-improved-external-products' ); ?></li>
+							<li><?php _e( 'Automatic product updates (updating, adding, removing, etc.)','woocommerce-improved-external-products' ); ?></li>
+							<li><?php _e( 'Easy product importing (no feeds to download, no coding required)','woocommerce-improved-external-products' ); ?></li>
+							<li><?php _e( 'Cloaked affiliate links','woocommerce-improved-external-products' ); ?></li>
+							<li><a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_8_3_12" target="_blank" rel="nofollow"><?php _e( 'and much more...','woocommerce-improved-external-products' ); ?></a></li>
 						</ul>
-						<p><a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_5_3_9" target="_blank" rel="nofollow" class="button button-primary">Click here to signup</a></p>
+						<p><a href="https://affiliates.datafeedr.com/idevaffiliate.php?id=39_5_3_9" target="_blank" rel="nofollow" class="button button-primary"><?php _e( 'Click here to signup','woocommerce-improved-external-products' ); ?></a></p>
 					</div>
 				</div>
         		<div style="margin-top:20px;margin-bottom:40px">
-	        		<h2>Having Trouble?</h2>
-					<p>Email support@wpovernight.com and we'll answer your question as quickly as possible.</p>
+	        		<h2><?php _e( 'Having Trouble?','woocommerce-improved-external-products' ); ?></h2>
+					<p><?php _e( 'Email support@wpovernight.com and we\'ll answer your question as quickly as possible.','woocommerce-improved-external-products' ); ?></p>
 				</div>
 			</form>
 			<script type="text/javascript">
