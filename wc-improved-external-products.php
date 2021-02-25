@@ -191,6 +191,7 @@ class ImprovedExternalProducts {
 		/* Add code to product page */
 		if(is_product()){
 			$product = wc_get_product(get_the_ID());
+			if( ! ( $product instanceof \WC_Product ) ) return;
 
 			/* If the product is external */
 			if($product->is_type( 'external' )){
