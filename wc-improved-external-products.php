@@ -10,7 +10,7 @@
  * License URI: https://www.opensource.org/licenses/gpl-license.php
  * Text Domain: woocommerce-improved-external-products
  * WC requires at least: 2.6.0
- * WC tested up to: 4.5.0
+ * WC tested up to: 5.1.0
  */
 
 class ImprovedExternalProducts {
