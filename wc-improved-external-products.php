@@ -185,7 +185,6 @@ class ImprovedExternalProducts {
 	}
 
 	function add_js_to_footer(){
-		global $woocommerce, $product;
 		$options = get_option('improvedexternalproducts');
 		//$extra_selectors = $options['additional_javascript_selectors'];
 		/* Add code to product page */

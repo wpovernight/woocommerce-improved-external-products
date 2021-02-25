@@ -213,7 +213,6 @@ class ImprovedExternalProducts_Settings {
 	 * Default settings.
 	 */
 	public function default_settings() {
-		global $options;
 		$sections = get_option('improvedexternalproducts_sections');
 		if(empty($sections['templates'])){
 			$sections['templates'] = array();
@@ -284,7 +283,6 @@ class ImprovedExternalProducts_Settings {
 			</style>
 			<?php } ?>
 			<?php
-			global $options;
 			$sections = get_option('improvedexternalproducts_sections');
 			//print_r($sections);
 			//$option = get_option('woocommerce-improved-external-products');
