@@ -323,14 +323,15 @@ class ImprovedExternalProducts_Settings {
 				</div>
 			</form>
 			<script type="text/javascript">
-			jQuery('.hidden-input').click(function() {
-				jQuery(this).closest('.hidden-input').prev('.pro-feature').show('slow');
-				jQuery(this).closest('.hidden-input').hide();
+			jQuery( function ( $ ) {
+				$('.hidden-input').on('click',function() {
+					$(this).closest('.hidden-input').prev('.pro-feature').show('slow');
+					$(this).closest('.hidden-input').hide();
+				});
+
+				$("input.wcbulkorder-disabled").attr('disabled',true);
 			});
-			jQuery( document ).ready(function( $ ) {
-			    $("input.wcbulkorder-disabled").attr('disabled',true);
-			});
-		</script>
+			</script>
 		</div>
 		<?php
 	}
