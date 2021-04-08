@@ -5,9 +5,9 @@
  * Description: Opens External/Affiliate products in a new tab.
  * Version: 1.5.10
  * Author: Ewout Fernhout
- * Author URI: https://www.wpovernight.com
+ * Author URI: https://wpovernight.com/
  * License: GPLv2 or later
- * License URI: https://www.opensource.org/licenses/gpl-license.php
+ * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: woocommerce-improved-external-products
  * WC requires at least: 2.6.0
  * WC tested up to: 5.1.0
