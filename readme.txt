@@ -4,7 +4,7 @@ Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.5
 Tested up to: 5.8
-Stable tag: 1.5.10
+Stable tag: 1.5.11
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,10 @@ Pro Version Includes:
 If you are having any issues with this plugin, please feel free to report any them on the [support forum](https://wordpress.org/support/plugin/woocommerce-improved-external-products) or send an email to support@wpovernight.com.
 
 == Changelog ==
+
+= 1.5.11 (2021-09-15) =
+* Fix: jQuery deprecation notices
+* Marked Tested up to WP5.8 and WooCommerce 5.7
 
 = 1.5.10 (2021-02-25) =
 * Fix: Extra checks for product object
