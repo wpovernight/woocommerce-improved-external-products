@@ -4,7 +4,7 @@ Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.5
 Tested up to: 6.0
-Stable tag: 1.5.12
+Stable tag: 1.5.13
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,10 @@ Pro Version Includes:
 If you are having any issues with this plugin, please feel free to report any them on the [support forum](https://wordpress.org/support/plugin/woocommerce-improved-external-products) or send an email to support@wpovernight.com.
 
 == Changelog ==
+
+= 1.5.13 (2022-05-12) =
+* Remove Datafeedr area from the plugin settings
+* Tested up to WordPress 6.0 and WooCommerce 6.5
 
 = 1.5.12 (2021-12-21) =
 * Tested up to WooCommerce 6.0
