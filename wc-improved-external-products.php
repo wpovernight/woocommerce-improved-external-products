@@ -10,7 +10,7 @@
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: woocommerce-improved-external-products
  * WC requires at least: 2.6.0
- * WC tested up to: 6.0.0
+ * WC tested up to: 6.5
  */
 
 class ImprovedExternalProducts {
