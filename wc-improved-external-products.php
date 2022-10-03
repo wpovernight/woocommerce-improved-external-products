@@ -1,21 +1,21 @@
 <?php
 /**
- * Plugin Name: WooCommerce Improved External Products
- * Plugin URI: https://wpovernight.com/
- * Description: Opens External/Affiliate products in a new tab.
- * Version: 1.5.13
- * Author: Ewout Fernhout
- * Author URI: https://wpovernight.com/
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- * Text Domain: woocommerce-improved-external-products
+ * Plugin Name:          Improved External Products for WooCommerce
+ * Plugin URI:           https://wordpress.org/plugins/woocommerce-improved-external-products/
+ * Description:          Opens External/Affiliate products in a new tab.
+ * Version:              1.5.14
+ * Author:               WP Overnight
+ * Author URI:           https://wpovernight.com/
+ * License:              GPLv2 or later
+ * License URI:          https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * Text Domain:          woocommerce-improved-external-products
  * WC requires at least: 2.6.0
- * WC tested up to: 6.5
+ * WC tested up to:      6.9
  */
 
 class ImprovedExternalProducts {
 	
-	protected $plugin_version = '1.5.13';
+	protected $plugin_version = '1.5.14';
 
 	/**
 	 * Construct.
