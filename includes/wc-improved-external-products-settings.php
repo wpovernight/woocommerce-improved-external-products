@@ -337,11 +337,11 @@ class ImprovedExternalProducts_Settings {
 		} else {
 			$disabled = '';
 		}
-		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" size="%4$s"%5$s/>', $id, $menu, $current, $size, $disabled );
+		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" size="%4$s"%5$s/>', esc_attr( $id ), esc_attr( $menu ), esc_attr( $current ), esc_attr( $size ), esc_attr( $disabled ) );
 	
 		// Displays option description.
 		if ( isset( $args['description'] ) ) {
-			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
@@ -377,11 +377,11 @@ class ImprovedExternalProducts_Settings {
 		} else {
 			$disabled = '';
 		}
-		$html = sprintf( '<textarea rows="4" cols="100" id="%1$s" name="%2$s[%1$s]" %5$s/>%3$s</textarea>', $id, $menu, $current, $size, $disabled );
+		$html = sprintf( '<textarea rows="4" cols="100" id="%1$s" name="%2$s[%1$s]" %5$s/>%3$s</textarea>', esc_attr( $id ), esc_attr( $menu) , esc_attr( $current ), esc_attr( $size ), esc_attr( $disabled ) );
 	
 		// Displays option description.
 		if ( isset( $args['description'] ) ) {
-			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
@@ -415,15 +415,15 @@ class ImprovedExternalProducts_Settings {
 			$disabled = '';
 		}
 		
-		$html = sprintf( '<select name="%1$s[%2$s]" id="%1$s[%2$s]"%3$s>', $menu, $id, $disabled );
+		$html = sprintf( '<select name="%1$s[%2$s]" id="%1$s[%2$s]"%3$s>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $disabled ) );
 		$html .= sprintf( '<option value="%s"%s>%s</option>', '0', selected( $current, '0', false ), '' );
 		
 		foreach ( $args['options'] as $key => $label ) {
-			$html .= sprintf( '<option value="%s"%s>%s</option>', $key, selected( $current, $key, false ), $label );
+			$html .= sprintf( '<option value="%s"%s>%s</option>', esc_attr( $key ), esc_attr( selected( $current, $key, false ) ), esc_attr( $label ) );
 		}
 		$html .= sprintf( '</select>' );
 		if ( isset( $args['description'] ) ) {
-			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
 		
 		echo $html;
@@ -453,16 +453,16 @@ class ImprovedExternalProducts_Settings {
 				$disabled = '';
 			}
 			
-			$html .= sprintf( '<select name="%1$s[%2$s]" id="%1$s[%2$s]"%3$s>', $menu, $id, $disabled);
-			$html .= sprintf( '<option value="%s"%s>%s</option>', '0', selected( $current, '0', false ), '' );
+			$html .= sprintf( '<select name="%1$s[%2$s]" id="%1$s[%2$s]"%3$s>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $disabled ) );
+			$html .= sprintf( '<option value="%s"%s>%s</option>', '0', esc_attr( selected( $current, '0', false ) ), esc_attr( '' ) );
 			
 			foreach ( (array) $boxes['options'] as $key => $label ) {
-				$html .= sprintf( '<option value="%s"%s>%s</option>', $key, selected( $current, $key, false ), $label );
+				$html .= sprintf( '<option value="%s"%s>%s</option>', esc_attr( $key ), esc_attr( selected( $current, $key, false ) ), esc_attr( $label ) );
 			}
 			$html .= '</select>';
 	
 			if ( isset( $boxes['description'] ) ) {
-				$html .= sprintf( '<p class="description">%s</p>', $boxes['description'] );
+				$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $boxes['description'] ) );
 			}
 			$html .= '<br />';
 		}
@@ -495,11 +495,11 @@ class ImprovedExternalProducts_Settings {
 		} else {
 			$disabled = '';
 		}
-		$html = sprintf( '<input type="checkbox" id="%1$s" name="%2$s[%1$s]" value="1"%3$s %4$s/>', $id, $menu, checked( 1, $current, false ), $disabled );
+		$html = sprintf( '<input type="checkbox" id="%1$s" name="%2$s[%1$s]" value="1"%3$s %4$s/>', esc_attr( $id ), esc_attr( $menu ), checked( 1, $current, false ), esc_attr( $disabled ) );
 	
 		// Displays option description.
 		if ( isset( $args['description'] ) ) {
-			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
 	
 		echo $html;
@@ -529,13 +529,13 @@ class ImprovedExternalProducts_Settings {
 		}
 
 		foreach ( $args['options'] as $key => $label ) {
-			$html .= sprintf( '<input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s %5$s />', $menu, $id, $key, checked( $current, $key, false ), $disabled );
-			$html .= sprintf( '<label for="%1$s[%2$s][%3$s]"> %4$s</label><br>', $menu, $id, $key, $label);
+			$html .= sprintf( '<input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s %5$s />', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), checked( $current, $key, false ), esc_attr( $disabled ) );
+			$html .= sprintf( '<label for="%1$s[%2$s][%3$s]"> %4$s</label><br>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), esc_attr( $label ) );
 		}
 		
 		// Displays option description.
 		if ( isset( $args['description'] ) ) {
-			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
@@ -567,8 +567,8 @@ class ImprovedExternalProducts_Settings {
 		$radios = '';
 		
 		foreach ( $args['options'] as $key => $iconnumber ) {
-			$icons .= sprintf( '<td style="padding-bottom:0;font-size:16pt;" align="center"><label for="%1$s[%2$s][%3$s]"><i class="improvedexternalproducts-icon-shopping-cart-%4$s"></i></label></td>', $menu, $id, $key, $iconnumber);
-			$radios .= sprintf( '<td style="padding-top:0" align="center"><input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s /></td>', $menu, $id, $key, checked( $current, $key, false ) );
+			$icons .= sprintf( '<td style="padding-bottom:0;font-size:16pt;" align="center"><label for="%1$s[%2$s][%3$s]"><i class="improvedexternalproducts-icon-shopping-cart-%4$s"></i></label></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), esc_attr( $iconnumber ) );
+			$radios .= sprintf( '<td style="padding-top:0" align="center"><input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s /></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), checked( $current, $key, false ) );
 		}
 		$html = '<table><tr>'.$icons.'</tr><tr>'.$radios.'</tr></table>';
 		$html .= '<p class="description"><i>'. __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','woocommerce-improved-external-products').'</p>';
@@ -590,8 +590,8 @@ class ImprovedExternalProducts_Settings {
 	    	}
 	    	$category = !empty($options['new_tab_by_product_cat']) ? $options['new_tab_by_product_cat'] : array();
 	        $checked = in_array($term->term_id, $category) ? 'checked="checked"' : '';
-	        $html .= sprintf( '<input type="checkbox" id="%1$s[%4$s][%2$s]" name="%1$s[%4$s][%2$s]" value="%2$s" %3$s %5$s />', $pag, $term->term_id, $checked, $args['id'], $disabled );
-	        $html .= sprintf( '<label for="%1$s[%4$s][%3$s]"> %2$s</label><br>', $pag, $term->name, $term->term_id, $args['id'] );
+	        $html .= sprintf( '<input type="checkbox" id="%1$s[%4$s][%2$s]" name="%1$s[%4$s][%2$s]" value="%2$s" %3$s %5$s />', esc_attr( $pag ), esc_attr( $term->term_id ), esc_attr( $checked ), esc_attr( $args['id'] ), esc_attr( $disabled ) );
+	        $html .= sprintf( '<label for="%1$s[%4$s][%3$s]"> %2$s</label><br>', esc_attr( $pag ), esc_attr( $term->name ), esc_attr( $term->term_id ), esc_attr( $args['id'] ) );
 	    }
 
 	    $html .= sprintf( '<span class="description"> %s</span>', '' );
@@ -612,10 +612,7 @@ class ImprovedExternalProducts_Settings {
 	 * @return string	  Text field.
 	 */
 	public function heading_element_callback( $args ) {
-
-		$html = '';
-		echo $html;
-
+		echo esc_attr( '' );
 	}
 
 	/**
