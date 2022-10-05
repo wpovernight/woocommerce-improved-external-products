@@ -168,7 +168,7 @@ class ImprovedExternalProducts {
 		} else {
 		?>
 			<p class="cart">
-				<a href="<?php echo esc_url( $product_url ); ?>" rel="nofollow" class="single_add_to_cart_button button alt" target="<?php echo $target; ?>"><?php echo esc_html( $button_text ); ?></a>
+				<a href="<?php echo esc_url( $product_url ); ?>" rel="nofollow" class="single_add_to_cart_button button alt" target="<?php echo esc_attr( $target ); ?>"><?php echo esc_html( $button_text ); ?></a>
 			</p>
 		<?php } ?>
 
@@ -204,7 +204,7 @@ class ImprovedExternalProducts {
 					?>
 					<script type="text/javascript">
 						jQuery( document ).ready(function( $ ) {
-							$('a.single_add_to_cart_button <?php echo $extra_selectors; ?>').attr('target','_blank');
+							$('a.single_add_to_cart_button <?php echo esc_attr( $extra_selectors ); ?>').attr('target','_blank');
 						});
 					</script>
 					<?php
