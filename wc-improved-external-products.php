@@ -139,16 +139,17 @@ class ImprovedExternalProducts {
 	 */
 	function iepp_external_add_to_cart() {
 		global $product;
-		$product = wc_get_product($product);
-		$product_url = $product->get_product_url();
+
+		$product     = wc_get_product($product);
+		$product_url = is_callable( array( $product, 'get_product_url' ) ) ? $product->get_product_url() : false;
 		$button_text = $product->single_add_to_cart_text();
 		if ( ! $product_url || ! $button_text  ) {
 			return;
 		}
 
-		$target = $this->determine_link_target( $this->get_product_id( $product ) );
+		$target     = $this->determine_link_target( $this->get_product_id( $product ) );
 		$price_html = $product->get_price_html();
-		if($target == true){
+		if ( $target == true ) {
 			$target = '_blank';
 		} else {
 			$target = '_self';
@@ -157,13 +158,13 @@ class ImprovedExternalProducts {
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 		<?php
-		$options = get_option('improvedexternalproducts');
-		if(!empty($options['custom_single_button_html'])){
-			$html = $options['custom_single_button_html'];
-			$html = str_replace('{product_url}', esc_url( $product_url ), $html);
-			$html = str_replace('{target}', $target, $html);
-			$html = str_replace('{button_text}', esc_html( $button_text ), $html);
-			$html = str_replace('{price_html}', $price_html, $html);
+		$options = get_option('woocommerce-improved-external-products');
+		if ( ! empty( $options['custom_single_button_html'] ) ) {
+			$html = wp_kses_post( $options['custom_single_button_html'] );
+			$html = str_replace( '{product_url}', esc_url( $product_url ), $html );
+			$html = str_replace( '{target}', esc_attr( $target ), $html );
+			$html = str_replace( '{button_text}', esc_html( $button_text ), $html );
+			$html = str_replace( '{price_html}', esc_html( $price_html ), $html );
 			echo $html;
 		} else {
 		?>
@@ -185,7 +186,7 @@ class ImprovedExternalProducts {
 	}
 
 	function add_js_to_footer(){
-		$options = get_option('improvedexternalproducts');
+		$options = get_option('woocommerce-improved-external-products');
 		//$extra_selectors = $options['additional_javascript_selectors'];
 		/* Add code to product page */
 		if(is_product()){
