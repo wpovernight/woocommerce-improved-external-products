@@ -1,13 +1,13 @@
 === Improved External Products for WooCommerce ===
-Contributors:      pomegranate, jprummer
-Donate link:       https://www.wpovernight.com/
-Tags:              woocommerce, affiliate, external product, link, new tab, external/affiliate
+Contributors: pomegranate, jprummer
+Donate link: https://www.wpovernight.com/
+Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.5
-Tested up to:      6.0
-Stable tag:        1.5.16
-Requires PHP:      5.3
-License:           GPLv2 or later
-License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 6.0
+Stable tag: 1.5.16
+Requires PHP: 5.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Opens links to external/affiliate products in a new tab.
 
