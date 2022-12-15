@@ -576,7 +576,7 @@ class ImprovedExternalProducts_Settings {
 		echo $html;
 	}
 
-	function multicheckbox_element_callback( $args ) {
+	public function multicheckbox_element_callback( $args ) {
 	    $options    = get_option('woocommerce-improved-external-products');
 	    $pag        = 'woocommerce-improved-external-products';
 	    $_cats      = get_terms( 'product_cat' );
