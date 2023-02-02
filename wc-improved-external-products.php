@@ -41,6 +41,9 @@ class ImprovedExternalProducts {
 		// Display the admin notification
 		add_action( 'admin_notices', array( $this, 'go_pro_notice' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'backend_scripts_styles' ) );
+		
+		// HPOS compatibility
+		add_action( 'before_woocommerce_init', array( $this, 'woocommerce_hpos_compatible' ) );
 	}
 
 	/**
@@ -60,6 +63,17 @@ class ImprovedExternalProducts {
 	 */
 	public function iepp_activate() {
 		add_option('iepp_do_activation_redirect', true);
+	}
+	
+	/**
+	 * Declares WooCommerce HPOS compatibility.
+	 *
+	 * @return void
+	 */
+	public function woocommerce_hpos_compatible() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
 	}
 
 	/**
