@@ -80,10 +80,12 @@ class ImprovedExternalProducts {
 	 * Shows a notice for the Pro version on the order admin pages
 	 */
 	public function go_pro_notice() {
-		if ( !isset($GLOBALS['post_type']) || !in_array( $GLOBALS['post_type'], array('shop_order','product') ) ) {
+		$screen = $this->orderUtil->custom_order_table_screen();
+		
+		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' != $_REQUEST['page'] ) || ! in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
 			return;
 		}
-		
+				
 		if ( get_option( 'wpo_iepp_pro_notice_dismissed' ) !== false || get_option( 'iepp_go_pro_notice' ) == 'gopro' ) {
 			return;
 		} else {
@@ -122,7 +124,9 @@ class ImprovedExternalProducts {
 	}
 
 	public function backend_scripts_styles() {
-		if ( isset($GLOBALS['post_type']) && in_array( $GLOBALS['post_type'], array('shop_order','product') ) ) {
+		$screen = $this->orderUtil->custom_order_table_screen();
+		
+		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' == $_REQUEST['page'] ) || in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
 			wp_enqueue_script(
 				'wpo-iepp-admin',
 				untrailingslashit( plugins_url( '/', __FILE__ ) ) . '/assets/js/admin-script.js',
@@ -192,11 +196,16 @@ class ImprovedExternalProducts {
 		<?php
 	}
 
-	public function includes(){
-		if(!class_exists('ImprovedExternalProducts_Settings')){
-			require_once( 'includes/wc-improved-external-products-settings.php' );
+	public function includes() {
+		if ( ! class_exists( 'WPO_WCIEP_Order_Util' ) ) {
+			require_once( 'includes/class-wciep-order-util.php' );
 			// Get settings
-			$this->settings = new ImprovedExternalProducts_Settings();
+			$this->orderUtil = WPO_WCIEP_Order_Util::instance();
+		}
+		if ( ! class_exists( 'WPO_WCIEP_Settings' ) ) {
+			require_once( 'includes/class-wciep-settings.php' );
+			// Get settings
+			$this->settings = WPO_WCIEP_Settings::instance();
 		}
 	}
 

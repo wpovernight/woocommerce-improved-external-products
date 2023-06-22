@@ -1,10 +1,26 @@
 <?php
 
-class ImprovedExternalProducts_Settings {
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+class WPO_WCIEP_Settings {
+	
+	protected static $_instance = null;
 	
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'init_settings' ) ); // Registers settings
 		add_action( 'admin_menu', array( $this, 'iepp_add_page' ) );
+	}
+	
+	/**
+	 * Instance.
+	 */
+	public static function instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
 	}
 
 	/**
