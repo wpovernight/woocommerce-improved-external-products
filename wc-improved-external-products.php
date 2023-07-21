@@ -9,13 +9,14 @@
  * License:              GPLv2 or later
  * License URI:          https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain:          woocommerce-improved-external-products
- * WC requires at least: 2.6.0
+ * WC requires at least: 3.0
  * WC tested up to:      6.9
  */
 
 class ImprovedExternalProducts {
 	
 	protected $plugin_version = '1.5.16';
+	public    $settings;
 
 	/**
 	 * Construct.
@@ -40,6 +41,9 @@ class ImprovedExternalProducts {
 		// Display the admin notification
 		add_action( 'admin_notices', array( $this, 'go_pro_notice' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'backend_scripts_styles' ) );
+		
+		// HPOS compatibility
+		add_action( 'before_woocommerce_init', array( $this, 'woocommerce_hpos_compatible' ) );
 	}
 
 	/**
@@ -57,18 +61,31 @@ class ImprovedExternalProducts {
 	 * Redirect: Make It So
 	 *
 	 */
-	function iepp_activate() {
+	public function iepp_activate() {
 		add_option('iepp_do_activation_redirect', true);
+	}
+	
+	/**
+	 * Declares WooCommerce HPOS compatibility.
+	 *
+	 * @return void
+	 */
+	public function woocommerce_hpos_compatible() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
 	}
 
 	/**
 	 * Shows a notice for the Pro version on the order admin pages
 	 */
-	function go_pro_notice() {
-		if ( !isset($GLOBALS['post_type']) || !in_array( $GLOBALS['post_type'], array('shop_order','product') ) ) {
+	public function go_pro_notice() {
+		$screen = $this->orderUtil->custom_order_table_screen();
+		
+		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' != $_REQUEST['page'] ) || ! in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
 			return;
 		}
-		
+				
 		if ( get_option( 'wpo_iepp_pro_notice_dismissed' ) !== false || get_option( 'iepp_go_pro_notice' ) == 'gopro' ) {
 			return;
 		} else {
@@ -106,8 +123,10 @@ class ImprovedExternalProducts {
 		}
 	}
 
-	function backend_scripts_styles() {
-		if ( isset($GLOBALS['post_type']) && in_array( $GLOBALS['post_type'], array('shop_order','product') ) ) {
+	public function backend_scripts_styles() {
+		$screen = $this->orderUtil->custom_order_table_screen();
+		
+		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' == $_REQUEST['page'] ) || in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
 			wp_enqueue_script(
 				'wpo-iepp-admin',
 				untrailingslashit( plugins_url( '/', __FILE__ ) ) . '/assets/js/admin-script.js',
@@ -117,7 +136,7 @@ class ImprovedExternalProducts {
 		}
 	}
 
-	function iepp_redirect() {
+	public function iepp_redirect() {
 		if (get_option('iepp_do_activation_redirect', false)) {
 			delete_option('iepp_do_activation_redirect');
 			if(!isset($_GET['activate-multi'])){
@@ -126,7 +145,7 @@ class ImprovedExternalProducts {
 		}
 	}
 
-	function modify_external_product_links(){
+	public function modify_external_product_links(){
 		/* single product actions */
 		remove_action( 'woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30 );
 		add_action( 'woocommerce_external_add_to_cart', array($this,'iepp_external_add_to_cart'), 30 );
@@ -137,7 +156,7 @@ class ImprovedExternalProducts {
 	 *
 	 * @subpackage  Product
 	 */
-	function iepp_external_add_to_cart() {
+	public function iepp_external_add_to_cart() {
 		global $product;
 
 		$product     = wc_get_product($product);
@@ -147,7 +166,7 @@ class ImprovedExternalProducts {
 			return;
 		}
 
-		$target     = $this->determine_link_target( $this->get_product_id( $product ) );
+		$target     = $this->determine_link_target( $product->get_id() );
 		$price_html = $product->get_price_html();
 		if ( $target == true ) {
 			$target = '_blank';
@@ -177,15 +196,20 @@ class ImprovedExternalProducts {
 		<?php
 	}
 
-	function includes(){
-		if(!class_exists('ImprovedExternalProducts_Settings')){
-			require_once( 'includes/wc-improved-external-products-settings.php' );
+	public function includes() {
+		if ( ! class_exists( 'WPO_WCIEP_Order_Util' ) ) {
+			require_once( 'includes/class-wciep-order-util.php' );
 			// Get settings
-			$this->settings = new ImprovedExternalProducts_Settings();
+			$this->orderUtil = WPO_WCIEP_Order_Util::instance();
+		}
+		if ( ! class_exists( 'WPO_WCIEP_Settings' ) ) {
+			require_once( 'includes/class-wciep-settings.php' );
+			// Get settings
+			$this->settings = WPO_WCIEP_Settings::instance();
 		}
 	}
 
-	function add_js_to_footer(){
+	public function add_js_to_footer(){
 		$options = get_option('woocommerce-improved-external-products');
 		//$extra_selectors = $options['additional_javascript_selectors'];
 		/* Add code to product page */
@@ -195,7 +219,7 @@ class ImprovedExternalProducts {
 
 			/* If the product is external */
 			if($product->is_type( 'external' )){
-				if($this->determine_link_target( $this->get_product_id( $product ) ) == true){
+				if($this->determine_link_target( $product->get_id() ) == true){
 					$target = '_blank';
 				} else {
 					$target = '';
@@ -214,14 +238,9 @@ class ImprovedExternalProducts {
 		}
 	}
 
-	function determine_link_target($product_id){
+	public function determine_link_target($product_id){
 		return true;
 	}
-
-	// Backwards compatible product ID getter for WC2.6 and older
-	function get_product_id( $product ) {
-		return method_exists( $product, 'get_id') ? $product->get_id() : $product->id;
-	}
-	
 }
+
 $ImprovedExternalProducts = new ImprovedExternalProducts();
