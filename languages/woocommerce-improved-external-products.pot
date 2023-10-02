@@ -1,0 +1,176 @@
+# Copyright (C) 2023 WP Overnight
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Improved External Products for WooCommerce 1.6.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-improved-external-products\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-10-02T00:18:42-04:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: woocommerce-improved-external-products\n"
+
+#. Plugin Name of the plugin
+msgid "Improved External Products for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/woocommerce-improved-external-products/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Opens External/Affiliate products in a new tab."
+msgstr ""
+
+#. Author of the plugin
+msgid "WP Overnight"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wpovernight.com/"
+msgstr ""
+
+#: includes/class-wciep-settings.php:41
+msgid "Select Your Options"
+msgstr ""
+
+#: includes/class-wciep-settings.php:48
+msgid "Standard Settings"
+msgstr ""
+
+#: includes/class-wciep-settings.php:56
+msgid "Default setting for external products"
+msgstr ""
+
+#: includes/class-wciep-settings.php:64
+msgid "Open all external products in new tab by default"
+msgstr ""
+
+#: includes/class-wciep-settings.php:65
+msgid "Open all products in same tab by default"
+msgstr ""
+
+#: includes/class-wciep-settings.php:73
+msgid "Custom Single Product Button HTML"
+msgstr ""
+
+#: includes/class-wciep-settings.php:88
+msgid "Pro Settings"
+msgstr ""
+
+#: includes/class-wciep-settings.php:96
+msgid "Check categories to open in new tab"
+msgstr ""
+
+#: includes/class-wciep-settings.php:110
+msgid "Category Page Image Link"
+msgstr ""
+
+#: includes/class-wciep-settings.php:118
+msgid "Link Image to Product Page from Category"
+msgstr ""
+
+#: includes/class-wciep-settings.php:119
+msgid "Link Image to External Product from Category"
+msgstr ""
+
+#: includes/class-wciep-settings.php:128
+msgid "Category Page Button Link"
+msgstr ""
+
+#: includes/class-wciep-settings.php:136
+msgid "Link Add to Cart Button to Product Page from Category"
+msgstr ""
+
+#: includes/class-wciep-settings.php:137
+msgid "Link Add to Cart Button to External Product from Category"
+msgstr ""
+
+#: includes/class-wciep-settings.php:146
+msgid "Variation Custom Single Product Button HTML"
+msgstr ""
+
+#: includes/class-wciep-settings.php:160
+msgid "Selector for product images on category page (change only if category image settings are not working)"
+msgstr ""
+
+#: includes/class-wciep-settings.php:174
+msgid "Selector for product button on category page (change only if category button settings are not working)"
+msgstr ""
+
+#: includes/class-wciep-settings.php:203
+#: includes/class-wciep-settings.php:204
+#: includes/class-wciep-settings.php:246
+msgid "Improved External Products"
+msgstr ""
+
+#: includes/class-wciep-settings.php:251
+msgid "Supercharge Improved External Products with the following features:"
+msgstr ""
+
+#: includes/class-wciep-settings.php:253
+msgid "Open in new tab or current tab on a product level."
+msgstr ""
+
+#: includes/class-wciep-settings.php:254
+msgid "Open in new tab or current tab on a category level."
+msgstr ""
+
+#: includes/class-wciep-settings.php:255
+msgid "Setup variable external products."
+msgstr ""
+
+#: includes/class-wciep-settings.php:257
+msgid "Get Improved External Products Pro!"
+msgstr ""
+
+#: includes/class-wciep-settings.php:314
+msgid "Having Trouble?"
+msgstr ""
+
+#: includes/class-wciep-settings.php:315
+msgid "Email support@wpovernight.com and we'll answer your question as quickly as possible."
+msgstr ""
+
+#: includes/class-wciep-settings.php:364
+#: includes/class-wciep-settings.php:404
+#: includes/class-wciep-settings.php:558
+#: includes/class-wciep-settings.php:615
+msgid "This feature only available in"
+msgstr ""
+
+#: includes/class-wciep-settings.php:590
+msgid "<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!"
+msgstr ""
+
+#: wc-improved-external-products.php:112
+msgid "Thank you for using Improved External Products! Check out our pro version:"
+msgstr ""
+
+#: wc-improved-external-products.php:114
+msgid "Ability to open external products in a new tab from product archives"
+msgstr ""
+
+#: wc-improved-external-products.php:115
+msgid "Set tab action on a per-product basis"
+msgstr ""
+
+#: wc-improved-external-products.php:116
+msgid "Set tab action on a product category basis"
+msgstr ""
+
+#: wc-improved-external-products.php:117
+msgid "Priority Customer Support"
+msgstr ""
+
+#: wc-improved-external-products.php:119
+msgid "Click here to go Pro now!"
+msgstr ""
+
+#: wc-improved-external-products.php:120
+msgid "Dismiss this notice"
+msgstr ""
