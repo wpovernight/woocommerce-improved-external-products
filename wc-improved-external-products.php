@@ -47,6 +47,13 @@ class ImprovedExternalProducts {
 	}
 
 	/**
+	 * Load plugin text domain
+	 */
+	public function translations() {
+		load_plugin_textdomain( 'woocommerce-improved-external-products', false, dirname( plugin_basename(__FILE__) ) . '/languages' );
+	}
+
+	/**
 	 * Define constant if not already set
 	 * @param  string $name
 	 * @param  string|bool $value
