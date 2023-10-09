@@ -22,6 +22,10 @@ class ImprovedExternalProducts {
 	 * Construct.
 	 */
 	public function __construct() {
+		
+		// Load plugin text domain.
+		add_action( 'plugins_loaded', array( $this, 'translations' ) );
+
 		$this->define( 'WC_IEP_VERSION', $this->plugin_version );
 		
 		// Print the js
@@ -44,6 +48,13 @@ class ImprovedExternalProducts {
 		
 		// HPOS compatibility
 		add_action( 'before_woocommerce_init', array( $this, 'woocommerce_hpos_compatible' ) );
+	}
+
+	/**
+	 * Load plugin text domain
+	 */
+	public function translations() {
+		load_plugin_textdomain( 'woocommerce-improved-external-products', false, dirname( plugin_basename(__FILE__) ) . '/languages' );
 	}
 
 	/**
