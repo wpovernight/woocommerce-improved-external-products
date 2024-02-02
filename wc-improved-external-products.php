@@ -17,6 +17,7 @@ class ImprovedExternalProducts {
 	
 	protected $plugin_version = '1.6.2';
 	public    $settings;
+	public    $orderUtil;
 
 	/**
 	 * Construct.
