@@ -6,7 +6,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WPO_WCIEP_Order_Util {
 
+	/**
+	 * @var WPO_WCIEP_Order_Util
+	 */
 	protected static $_instance = null;
+
+	/**
+	 * @var OrderUtil|false
+	 */
 	public $wc_order_util_class_object;
 
 	/**

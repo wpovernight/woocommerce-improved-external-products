@@ -6,6 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WPO_WCIEP_Settings {
 	
+	/**
+	 * @var WPO_WCIEP_Settings
+	 */
 	protected static $_instance = null;
 	
 	public function __construct() {
