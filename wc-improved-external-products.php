@@ -15,8 +15,20 @@
 
 class ImprovedExternalProducts {
 	
+	/**
+	 * @var string
+	 */
 	protected $plugin_version = '1.6.2';
-	public    $settings;
+	
+	/**
+	 * @var WPO_WCIEP_Settings
+	 */
+	public $settings;
+	
+	/**
+	 * @var WPO_WCIEP_Order_Util
+	 */
+	public $order_util;
 
 	/**
 	 * Construct.
@@ -91,7 +103,7 @@ class ImprovedExternalProducts {
 	 * Shows a notice for the Pro version on the order admin pages
 	 */
 	public function go_pro_notice() {
-		$screen = $this->orderUtil->custom_order_table_screen();
+		$screen = $this->order_util->custom_order_table_screen();
 		
 		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' != $_REQUEST['page'] ) || ! in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
 			return;
@@ -135,7 +147,7 @@ class ImprovedExternalProducts {
 	}
 
 	public function backend_scripts_styles() {
-		$screen = $this->orderUtil->custom_order_table_screen();
+		$screen = $this->order_util->custom_order_table_screen();
 		
 		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' == $_REQUEST['page'] ) || in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
 			wp_enqueue_script(
@@ -211,7 +223,7 @@ class ImprovedExternalProducts {
 		if ( ! class_exists( 'WPO_WCIEP_Order_Util' ) ) {
 			require_once( 'includes/class-wciep-order-util.php' );
 			// Get settings
-			$this->orderUtil = WPO_WCIEP_Order_Util::instance();
+			$this->order_util = WPO_WCIEP_Order_Util::instance();
 		}
 		if ( ! class_exists( 'WPO_WCIEP_Settings' ) ) {
 			require_once( 'includes/class-wciep-settings.php' );
