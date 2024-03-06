@@ -1,11 +1,11 @@
 === Improved External Products for WooCommerce ===
-Contributors: pomegranate, jprummer
+Contributors: pomegranate, jprummer, alexmigf, yordansoares, kluver, dpeyou, dwpriv
 Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
 Requires at least: 3.5
-Tested up to: 6.4
-Stable tag: 1.6.2
-Requires PHP: 5.3
+Tested up to: 6.5
+Stable tag: 1.6.3
+Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,12 @@ Pro Version Includes:
 If you are having any issues with this plugin, please feel free to report any them on the [support forum](https://wordpress.org/support/plugin/woocommerce-improved-external-products) or send an email to support@wpovernight.com.
 
 == Changelog ==
+
+= 1.6.3 (2024-03-06) =
+* New: bumps PHP min version to 7.2
+* Fix: deprecated warnings with PHP 8.2
+* Translations: Updated translation template (POT)
+* Tested up to WordPress 6.5 and WooCommerce 8.7
 
 = 1.6.2 (2023-11-07) =
 * Tweak: adds POT language file and loads textdomain
