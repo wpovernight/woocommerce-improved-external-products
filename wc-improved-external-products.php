@@ -36,7 +36,7 @@ class ImprovedExternalProducts {
 	public function __construct() {
 		
 		// Load plugin text domain.
-		add_action( 'plugins_loaded', array( $this, 'translations' ) );
+		add_action( 'init', array( $this, 'translations' ) );
 
 		$this->define( 'WC_IEP_VERSION', $this->plugin_version );
 		
