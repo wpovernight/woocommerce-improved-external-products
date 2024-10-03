@@ -36,7 +36,13 @@ class ImprovedExternalProducts {
 	public function __construct() {
 		
 		// Load plugin text domain.
-		add_action( 'init', array( $this, 'translations' ) );
+		add_action( 'init', array( $this, 'translations' ), 9 );
+		
+		// Modify external product links
+		add_action( 'init',array( $this,'modify_external_product_links' ) );
+		
+		// Get included files
+		add_action( 'wp_loaded', array( $this,'includes' ), 9 );
 
 		$this->define( 'WC_IEP_VERSION', $this->plugin_version );
 		
@@ -49,10 +55,6 @@ class ImprovedExternalProducts {
 		// Redirect to settings page on activation
 		register_activation_hook(__FILE__, array($this,'iepp_activate'));
 		add_action('admin_init', array($this,'iepp_redirect'));
-		// Get included files
-		add_action('wp_loaded',array($this,'includes'));
-
-		add_action('init',array($this,'modify_external_product_links'));
 		
 		// Display the admin notification
 		add_action( 'admin_notices', array( $this, 'go_pro_notice' ) );
