@@ -2,35 +2,40 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Improved External Products for WooCommerce 1.6.5\n"
+"Project-Id-Version: Improved External Products for WooCommerce 1.6.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-improved-external-products\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-14T16:29:38+02:00\n"
+"POT-Creation-Date: 2024-10-30T16:17:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: woocommerce-improved-external-products\n"
 
 #. Plugin Name of the plugin
+#: wc-improved-external-products.php
 msgid "Improved External Products for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://wordpress.org/plugins/woocommerce-improved-external-products/"
+#: wc-improved-external-products.php
+msgid "https://wpovernight.com/downloads/improved-external-products-pro/"
 msgstr ""
 
 #. Description of the plugin
+#: wc-improved-external-products.php
 msgid "Opens External/Affiliate products in a new tab."
 msgstr ""
 
 #. Author of the plugin
+#: wc-improved-external-products.php
 msgid "WP Overnight"
 msgstr ""
 
 #. Author URI of the plugin
+#: wc-improved-external-products.php
 msgid "https://wpovernight.com/"
 msgstr ""
 
@@ -108,6 +113,10 @@ msgstr ""
 msgid "Improved External Products"
 msgstr ""
 
+#: includes/class-wciep-settings.php:219
+msgid "Settings"
+msgstr ""
+
 #: includes/class-wciep-settings.php:254
 msgid "Supercharge Improved External Products with the following features:"
 msgstr ""
@@ -138,39 +147,39 @@ msgstr ""
 
 #: includes/class-wciep-settings.php:367
 #: includes/class-wciep-settings.php:407
-#: includes/class-wciep-settings.php:561
-#: includes/class-wciep-settings.php:618
+#: includes/class-wciep-settings.php:560
+#: includes/class-wciep-settings.php:617
 msgid "This feature only available in"
 msgstr ""
 
-#: includes/class-wciep-settings.php:593
+#: includes/class-wciep-settings.php:592
 msgid "<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!"
 msgstr ""
 
-#: wc-improved-external-products.php:137
+#: wc-improved-external-products.php:140
 msgid "Thank you for using Improved External Products! Check out our pro version:"
 msgstr ""
 
-#: wc-improved-external-products.php:139
+#: wc-improved-external-products.php:142
 msgid "Ability to open external products in a new tab from product archives"
 msgstr ""
 
-#: wc-improved-external-products.php:140
+#: wc-improved-external-products.php:143
 msgid "Set tab action on a per-product basis"
 msgstr ""
 
-#: wc-improved-external-products.php:141
+#: wc-improved-external-products.php:144
 msgid "Set tab action on a product category basis"
 msgstr ""
 
-#: wc-improved-external-products.php:142
+#: wc-improved-external-products.php:145
 msgid "Priority Customer Support"
 msgstr ""
 
-#: wc-improved-external-products.php:144
+#: wc-improved-external-products.php:147
 msgid "Click here to go Pro now!"
 msgstr ""
 
-#: wc-improved-external-products.php:145
+#: wc-improved-external-products.php:148
 msgid "Dismiss this notice"
 msgstr ""
