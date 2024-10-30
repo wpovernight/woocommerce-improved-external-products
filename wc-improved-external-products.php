@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:          Improved External Products for WooCommerce
- * Plugin URI:           https://wordpress.org/plugins/woocommerce-improved-external-products/
+ * Plugin URI:           https://wpovernight.com/downloads/improved-external-products-pro/
  * Description:          Opens External/Affiliate products in a new tab.
  * Version:              1.6.5
  * Author:               WP Overnight
