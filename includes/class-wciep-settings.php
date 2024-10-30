@@ -216,7 +216,7 @@ class WPO_WCIEP_Settings {
 	 * Add settings link to plugins page
 	 */
 	public function improvedexternalproducts_add_settings_link( $links ) {
-	    $settings_link = '<a href="options-general.php?page=iepp_options_page">'. __( 'Settings', 'woocommerce' ) . '</a>';
+	    $settings_link = '<a href="options-general.php?page=iepp_options_page">'. __( 'Settings', 'woocommerce-improved-external-products' ) . '</a>';
 	  	array_push( $links, $settings_link );
 	  	return $links;
 	}
