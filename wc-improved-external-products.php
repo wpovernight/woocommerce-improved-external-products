@@ -162,7 +162,8 @@ class ImprovedExternalProducts {
 				'wpo-iepp-admin',
 				untrailingslashit( plugins_url( '/', __FILE__ ) ) . '/assets/js/admin-script.js',
 				array( 'jquery' ),
-				WC_IEP_VERSION
+				WC_IEP_VERSION,
+				true
 			);
 		}
 	}
