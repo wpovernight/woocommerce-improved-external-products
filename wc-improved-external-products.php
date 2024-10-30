@@ -106,15 +106,18 @@ class ImprovedExternalProducts {
 	 */
 	public function go_pro_notice() {
 		$screen = $this->order_util->custom_order_table_screen();
-		
-		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' != $_REQUEST['page'] ) || ! in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
+
+		if (
+			( isset( $_REQUEST['page'] ) && 'iepp_options_page' !== $_REQUEST['page'] ) || // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			! in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) )
+		) {
 			return;
 		}
 				
-		if ( get_option( 'wpo_iepp_pro_notice_dismissed' ) !== false || get_option( 'iepp_go_pro_notice' ) == 'gopro' ) {
+		if ( get_option( 'wpo_iepp_pro_notice_dismissed' ) !== false || 'gopro' === get_option( 'iepp_go_pro_notice' ) ) {
 			return;
 		} else {
-			if ( isset( $_GET['wpo_iepp_dismis_pro'] ) ) {
+			if ( isset( $_GET['wpo_iepp_dismis_pro'] ) && isset( $_GET['_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'wpo_iepp_dismis_pro_notice' ) ) {
 				update_option( 'wpo_iepp_pro_notice_dismissed', true );
 				return;
 			}
@@ -142,7 +145,7 @@ class ImprovedExternalProducts {
 					<li><?php _e( 'Priority Customer Support', 'woocommerce-improved-external-products' ) ?></li>
 				</ul>
 				<p><a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php _e( 'Click here to go Pro now!', 'woocommerce-improved-external-products' ) ?></a></p>
-				<p><a href="<?php echo esc_url( add_query_arg( 'wpo_iepp_dismis_pro', true ) ); ?>" class="wpo-iepp-dismiss"><?php _e( 'Dismiss this notice', 'woocommerce-improved-external-products' ); ?></a></p>
+				<p><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wpo_iepp_dismis_pro', true ), 'wpo_iepp_dismis_pro_notice' ) ); ?>" class="wpo-iepp-dismiss"><?php _e( 'Dismiss this notice', 'woocommerce-improved-external-products' ); ?></a></p>
 			</div>
 			<?php
 		}
@@ -150,8 +153,11 @@ class ImprovedExternalProducts {
 
 	public function backend_scripts_styles() {
 		$screen = $this->order_util->custom_order_table_screen();
-		
-		if ( ( isset( $_REQUEST['page'] ) && 'iepp_options_page' == $_REQUEST['page'] ) || in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) ) ) {
+
+		if (
+			( isset( $_REQUEST['page'] ) && 'iepp_options_page' === $_REQUEST['page'] ) || // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			in_array( $screen, array( 'shop_order', 'edit-shop_order', 'woocommerce_page_wc-orders', 'edit-product', 'product' ) )
+		) {
 			wp_enqueue_script(
 				'wpo-iepp-admin',
 				untrailingslashit( plugins_url( '/', __FILE__ ) ) . '/assets/js/admin-script.js',
@@ -162,10 +168,10 @@ class ImprovedExternalProducts {
 	}
 
 	public function iepp_redirect() {
-		if (get_option('iepp_do_activation_redirect', false)) {
-			delete_option('iepp_do_activation_redirect');
-			if(!isset($_GET['activate-multi'])){
-				wp_redirect(IEPP_SETTINGS_URL);
+		if ( get_option( 'iepp_do_activation_redirect', false ) ) {
+			delete_option( 'iepp_do_activation_redirect' );
+			if ( ! isset( $_GET['activate-multi'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				wp_redirect( IEPP_SETTINGS_URL );
 			}
 		}
 	}
