@@ -246,18 +246,18 @@ class WPO_WCIEP_Settings {
 		?>
 		<div class="wrap">
 			<div class="icon32" id="icon-options-general"><br /></div>
-			<h2><?php _e('Improved External Products','woocommerce-improved-external-products') ?></h2>
+			<h2><?php esc_html_e('Improved External Products','woocommerce-improved-external-products') ?></h2>
 			
 			<?php if (!class_exists('ImprovedExternalProductsPro')){ ?>
 			<div class="improved-external-products-pro-ad">
-				<img src="<?php echo plugins_url( 'assets/images/wpo-helper.png', dirname(__FILE__) ); ?>" class="wpo-helper">
-				<h3><?php _e( 'Supercharge Improved External Products with the following features:', 'woocommerce-improved-external-products' ); ?></h3>
+				<img src="<?php echo esc_url( plugins_url( 'assets/images/wpo-helper.png', dirname(__FILE__) ) ); ?>" class="wpo-helper">
+				<h3><?php esc_html_e( 'Supercharge Improved External Products with the following features:', 'woocommerce-improved-external-products' ); ?></h3>
 				<ul>
-					<li><?php _e('Open in new tab or current tab on a product level.','woocommerce-improved-external-products') ?></li>
-					<li><?php _e('Open in new tab or current tab on a category level.','woocommerce-improved-external-products') ?></li>
-					<li><?php _e('Setup variable external products.','woocommerce-improved-external-products') ?></li>
+					<li><?php esc_html_e('Open in new tab or current tab on a product level.','woocommerce-improved-external-products') ?></li>
+					<li><?php esc_html_e('Open in new tab or current tab on a category level.','woocommerce-improved-external-products') ?></li>
+					<li><?php esc_html_e('Setup variable external products.','woocommerce-improved-external-products') ?></li>
 				</ul>
-				<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"class="button button-primary"><?php _e("Get Improved External Products Pro!", 'woocommerce-improved-external-products'); ?></a>
+				<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"class="button button-primary"><?php esc_html_e("Get Improved External Products Pro!", 'woocommerce-improved-external-products'); ?></a>
 			</div>
 			<style>
 				.improved-external-products-pro-ad {
@@ -314,8 +314,8 @@ class WPO_WCIEP_Settings {
 					submit_button();
 				?>
         		<div style="margin-top:20px;margin-bottom:40px">
-	        		<h2><?php _e( 'Having Trouble?','woocommerce-improved-external-products' ); ?></h2>
-					<p><?php _e( 'Email support@wpovernight.com and we\'ll answer your question as quickly as possible.','woocommerce-improved-external-products' ); ?></p>
+	        		<h2><?php esc_html_e( 'Having Trouble?','woocommerce-improved-external-products' ); ?></h2>
+					<p><?php esc_html_e( 'Email support@wpovernight.com and we\'ll answer your question as quickly as possible.','woocommerce-improved-external-products' ); ?></p>
 				</div>
 			</form>
 			<script type="text/javascript">
@@ -369,7 +369,7 @@ class WPO_WCIEP_Settings {
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
 	
-		echo $html;
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -409,7 +409,7 @@ class WPO_WCIEP_Settings {
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
 	
-		echo $html;
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 	
 	/**
@@ -445,7 +445,7 @@ class WPO_WCIEP_Settings {
 			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
 		
-		echo $html;
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -485,9 +485,8 @@ class WPO_WCIEP_Settings {
 			}
 			$html .= '<br />';
 		}
-		
-		
-		echo $html;
+
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -500,28 +499,28 @@ class WPO_WCIEP_Settings {
 	public function checkbox_element_callback( $args ) {
 		$menu = $args['menu'];
 		$id = $args['id'];
-	
+
 		$options = get_option( $menu );
-	
+
 		if ( isset( $options[$id] ) ) {
 			$current = $options[$id];
 		} else {
 			$current = isset( $args['default'] ) ? $args['default'] : '';
 		}
-	
+
 		if(!class_exists('ImprovedExternalProductsPro')){
 			$disabled = (isset( $args['disabled'] )) ? ' disabled' : '';
 		} else {
 			$disabled = '';
 		}
 		$html = sprintf( '<input type="checkbox" id="%1$s" name="%2$s[%1$s]" value="1"%3$s %4$s/>', esc_attr( $id ), esc_attr( $menu ), checked( 1, $current, false ), esc_attr( $disabled ) );
-	
+
 		// Displays option description.
 		if ( isset( $args['description'] ) ) {
 			$html .= sprintf( '<p class="description">%s</p>', wp_kses_post( $args['description'] ) );
 		}
-	
-		echo $html;
+
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -563,7 +562,7 @@ class WPO_WCIEP_Settings {
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
 
-		echo $html;
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -574,9 +573,9 @@ class WPO_WCIEP_Settings {
 	public function icons_radio_element_callback( $args ) {
 		$menu = $args['menu'];
 		$id = $args['id'];
-	
+
 		$options = get_option( $menu );
-	
+
 		if ( isset( $options[$id] ) ) {
 			$current = $options[$id];
 		} else {
@@ -584,15 +583,15 @@ class WPO_WCIEP_Settings {
 		}
 		$icons = '';
 		$radios = '';
-		
+
 		foreach ( $args['options'] as $key => $iconnumber ) {
 			$icons .= sprintf( '<td style="padding-bottom:0;font-size:16pt;" align="center"><label for="%1$s[%2$s][%3$s]"><i class="improvedexternalproducts-icon-shopping-cart-%4$s"></i></label></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), esc_attr( $iconnumber ) );
 			$radios .= sprintf( '<td style="padding-top:0" align="center"><input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s /></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), checked( $current, $key, false ) );
 		}
 		$html = '<table><tr>'.$icons.'</tr><tr>'.$radios.'</tr></table>';
 		$html .= '<p class="description"><i>'. __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','woocommerce-improved-external-products').'</p>';
-		
-		echo $html;
+
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	public function multicheckbox_element_callback( $args ) {
@@ -619,8 +618,8 @@ class WPO_WCIEP_Settings {
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 	    }
-	    echo $html;
 
+	    echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

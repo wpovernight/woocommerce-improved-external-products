@@ -137,15 +137,15 @@ class ImprovedExternalProducts {
 
 			?>
 			<div class="notice notice-info is-dismissible wpo-iepp-pro-notice">
-				<h3><?php _e( 'Thank you for using Improved External Products! Check out our pro version:', 'woocommerce-improved-external-products' ); ?></h3>
+				<h3><?php esc_html_e( 'Thank you for using Improved External Products! Check out our pro version:', 'woocommerce-improved-external-products' ); ?></h3>
 				<ul class="ul-square">
-					<li><?php _e( 'Ability to open external products in a new tab from product archives', 'woocommerce-improved-external-products' ) ?></li>
-					<li><?php _e( 'Set tab action on a per-product basis', 'woocommerce-improved-external-products' ) ?></li>
-					<li><?php _e( 'Set tab action on a product category basis', 'woocommerce-improved-external-products' ) ?></li>
-					<li><?php _e( 'Priority Customer Support', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php esc_html_e( 'Ability to open external products in a new tab from product archives', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php esc_html_e( 'Set tab action on a per-product basis', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php esc_html_e( 'Set tab action on a product category basis', 'woocommerce-improved-external-products' ) ?></li>
+					<li><?php esc_html_e( 'Priority Customer Support', 'woocommerce-improved-external-products' ) ?></li>
 				</ul>
-				<p><a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php _e( 'Click here to go Pro now!', 'woocommerce-improved-external-products' ) ?></a></p>
-				<p><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wpo_iepp_dismis_pro', true ), 'wpo_iepp_dismis_pro_notice' ) ); ?>" class="wpo-iepp-dismiss"><?php _e( 'Dismiss this notice', 'woocommerce-improved-external-products' ); ?></a></p>
+				<p><a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"><?php esc_html_e( 'Click here to go Pro now!', 'woocommerce-improved-external-products' ) ?></a></p>
+				<p><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wpo_iepp_dismis_pro', true ), 'wpo_iepp_dismis_pro_notice' ) ); ?>" class="wpo-iepp-dismiss"><?php esc_html_e( 'Dismiss this notice', 'woocommerce-improved-external-products' ); ?></a></p>
 			</div>
 			<?php
 		}
@@ -200,7 +200,7 @@ class ImprovedExternalProducts {
 
 		$target     = $this->determine_link_target( $product->get_id() );
 		$price_html = $product->get_price_html();
-		if ( $target == true ) {
+		if ( $target ) {
 			$target = '_blank';
 		} else {
 			$target = '_self';
@@ -216,7 +216,7 @@ class ImprovedExternalProducts {
 			$html = str_replace( '{target}', esc_attr( $target ), $html );
 			$html = str_replace( '{button_text}', esc_html( $button_text ), $html );
 			$html = str_replace( '{price_html}', esc_html( $price_html ), $html );
-			echo $html;
+			echo wp_kses_post( $html );
 		} else {
 		?>
 			<p class="cart">
