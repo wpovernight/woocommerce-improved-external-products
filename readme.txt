@@ -1,7 +1,7 @@
 === Improved External Products for WooCommerce ===
 Contributors: pomegranate, jprummer, alexmigf, yordansoares, kluver, dpeyou, dwpriv
 Donate link: https://www.wpovernight.com/
-Tags: woocommerce, affiliate, external product, link, new tab, external/affiliate
+Tags: woocommerce, affiliate, external product, link, external/affiliate
 Requires at least: 3.5
 Tested up to: 6.6
 Stable tag: 1.6.5
