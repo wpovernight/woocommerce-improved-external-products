@@ -121,7 +121,7 @@ class ImprovedExternalProducts {
 
 			// keep track of how many days this notice is show so we can remove it after 7 days
 			$notice_shown_on = get_option( 'wpo_iepp_pro_notice_shown', array() );
-			$today = date('Y-m-d');
+			$today = gmdate('Y-m-d');
 			if ( !in_array($today, $notice_shown_on) ) {
 				$notice_shown_on[] = $today;
 				update_option( 'wpo_iepp_pro_notice_shown', $notice_shown_on );
