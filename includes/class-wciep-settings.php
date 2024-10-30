@@ -662,7 +662,7 @@ class WPO_WCIEP_Settings {
 					if($key == 'custom_single_button_html' || $key == 'variation_custom_single_button_html'){
 						$output[$key] = $input[$key];
 					} else {
-						$output[$key] = strip_tags( stripslashes( $input[$key] ) );
+						$output[$key] = wp_strip_all_tags( stripslashes( $input[$key] ) );
 					}
 				}
 				//print_r($output);
