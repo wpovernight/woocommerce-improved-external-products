@@ -13,6 +13,10 @@
  * WC tested up to:      9.4
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 class ImprovedExternalProducts {
 	
 	/**
