@@ -216,7 +216,7 @@ class WPO_WCIEP_Settings {
 	 * Add settings link to plugins page
 	 */
 	public function improvedexternalproducts_add_settings_link( $links ) {
-	    $settings_link = '<a href="options-general.php?page=iepp_options_page">'. __( 'Settings', 'woocommerce-improved-external-products' ) . '</a>';
+		$settings_link = '<a href="options-general.php?page=iepp_options_page">'. esc_html__( 'Settings', 'woocommerce-improved-external-products' ) . '</a>';
 	  	array_push( $links, $settings_link );
 	  	return $links;
 	}
@@ -273,8 +273,8 @@ class WPO_WCIEP_Settings {
 					do_settings_sections( 'woocommerce-improved-external-products' );
 					submit_button();
 				?>
-        		<div style="margin-top:20px;margin-bottom:40px">
-	        		<h2><?php esc_html_e( 'Having Trouble?','woocommerce-improved-external-products' ); ?></h2>
+				<div style="margin-top:20px;margin-bottom:40px">
+					<h2><?php esc_html_e( 'Having Trouble?','woocommerce-improved-external-products' ); ?></h2>
 					<p><?php esc_html_e( 'Email support@wpovernight.com and we\'ll answer your question as quickly as possible.','woocommerce-improved-external-products' ); ?></p>
 				</div>
 			</form>
@@ -545,31 +545,31 @@ class WPO_WCIEP_Settings {
 	}
 
 	public function multicheckbox_element_callback( $args ) {
-	    $options    = get_option('woocommerce-improved-external-products');
-	    $pag        = 'woocommerce-improved-external-products';
-	    $_cats      = get_terms( 'product_cat' );
-	    $html       = '';
+		$options    = get_option('woocommerce-improved-external-products');
+		$pag        = 'woocommerce-improved-external-products';
+		$_cats      = get_terms( 'product_cat' );
+		$html       = '';
 
-	    foreach ($_cats as $term) {
-	    	if(!class_exists('ImprovedExternalProductsPro')){
-	    		$disabled = (isset( $args['disabled'] )) ? ' disabled' : '';
-	    	} else {
-	    		$disabled = '';
-	    	}
-	    	$category = !empty($options['new_tab_by_product_cat']) ? $options['new_tab_by_product_cat'] : array();
-	        $checked = in_array($term->term_id, $category) ? 'checked="checked"' : '';
-	        $html .= sprintf( '<input type="checkbox" id="%1$s[%4$s][%2$s]" name="%1$s[%4$s][%2$s]" value="%2$s" %3$s %5$s />', esc_attr( $pag ), esc_attr( $term->term_id ), esc_attr( $checked ), esc_attr( $args['id'] ), esc_attr( $disabled ) );
-	        $html .= sprintf( '<label for="%1$s[%4$s][%3$s]"> %2$s</label><br>', esc_attr( $pag ), esc_attr( $term->name ), esc_attr( $term->term_id ), esc_attr( $args['id'] ) );
-	    }
+		foreach ($_cats as $term) {
+			if(!class_exists('ImprovedExternalProductsPro')){
+				$disabled = (isset( $args['disabled'] )) ? ' disabled' : '';
+			} else {
+				$disabled = '';
+			}
+			$category = !empty($options['new_tab_by_product_cat']) ? $options['new_tab_by_product_cat'] : array();
+			$checked = in_array($term->term_id, $category) ? 'checked="checked"' : '';
+			$html .= sprintf( '<input type="checkbox" id="%1$s[%4$s][%2$s]" name="%1$s[%4$s][%2$s]" value="%2$s" %3$s %5$s />', esc_attr( $pag ), esc_attr( $term->term_id ), esc_attr( $checked ), esc_attr( $args['id'] ), esc_attr( $disabled ) );
+			$html .= sprintf( '<label for="%1$s[%4$s][%3$s]"> %2$s</label><br>', esc_attr( $pag ), esc_attr( $term->name ), esc_attr( $term->term_id ), esc_attr( $args['id'] ) );
+		}
 
-	    $html .= sprintf( '<span class="description"> %s</span>', '' );
-	    if(!class_exists('ImprovedExternalProductsPro')){
-		    $html .= ' <span style="display:none;" class="pro-feature"><i>'. esc_html__('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+		$html .= sprintf( '<span class="description"> %s</span>', '' );
+		if(!class_exists('ImprovedExternalProductsPro')){
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. esc_html__('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
-	    }
+		}
 
-	    echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
