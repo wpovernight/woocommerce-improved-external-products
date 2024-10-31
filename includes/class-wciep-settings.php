@@ -314,7 +314,7 @@ class WPO_WCIEP_Settings {
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
-			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. esc_html__( 'This feature only available in', 'woocommerce-improved-external-products' ) .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
@@ -354,7 +354,7 @@ class WPO_WCIEP_Settings {
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
-			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. esc_html__( 'This feature only available in', 'woocommerce-improved-external-products' ) .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
@@ -507,7 +507,7 @@ class WPO_WCIEP_Settings {
 		}
 
 		if (isset( $args['disabled'] ) && !class_exists('ImprovedExternalProductsPro')) {
-			$html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+			$html .= ' <span style="display:none;" class="pro-feature"><i>'. esc_html__( 'This feature only available in', 'woocommerce-improved-external-products' ) .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 		}
@@ -539,7 +539,7 @@ class WPO_WCIEP_Settings {
 			$radios .= sprintf( '<td style="padding-top:0" align="center"><input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s /></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), checked( $current, $key, false ) );
 		}
 		$html = '<table><tr>'.$icons.'</tr><tr>'.$radios.'</tr></table>';
-		$html .= '<p class="description"><i>'. __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','woocommerce-improved-external-products').'</p>';
+		$html .= '<p class="description"><i>'. wp_kses( __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','woocommerce-improved-external-products') ) .'</p>';
 
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
@@ -564,7 +564,7 @@ class WPO_WCIEP_Settings {
 
 	    $html .= sprintf( '<span class="description"> %s</span>', '' );
 	    if(!class_exists('ImprovedExternalProductsPro')){
-		    $html .= ' <span style="display:none;" class="pro-feature"><i>'. __('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
+		    $html .= ' <span style="display:none;" class="pro-feature"><i>'. esc_html__('This feature only available in', 'woocommerce-improved-external-products') .' <a href="https://wpovernight.com/downloads/improved-external-products-pro/">Improved External Products Pro</a></i></span>';
 			$html .= '<div style="position:absolute; left:0; right:0; top:0; bottom:0; background-color:white; -moz-opacity: 0; opacity:0;filter: alpha(opacity=0);" class="hidden-input"></div>';
 			$html = '<div style="display:inline-block; position:relative;">'.$html.'</div>';
 	    }
