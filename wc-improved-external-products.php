@@ -45,9 +45,6 @@ class ImprovedExternalProducts {
 		add_action( 'wp_loaded', array( $this,'includes' ), 9 );
 
 		$this->define( 'WC_IEP_VERSION', $this->plugin_version );
-		
-		// Print the js
-		add_action( 'wp_footer', array($this,'add_js_to_footer') );
 
 		// Redirect to the Settings Page
 		// Settings Page URL
@@ -238,35 +235,6 @@ class ImprovedExternalProducts {
 			require_once( 'includes/class-wciep-settings.php' );
 			// Get settings
 			$this->settings = WPO_WCIEP_Settings::instance();
-		}
-	}
-
-	public function add_js_to_footer(){
-		$options = get_option('woocommerce-improved-external-products');
-		//$extra_selectors = $options['additional_javascript_selectors'];
-		/* Add code to product page */
-		if(is_product()){
-			$product = wc_get_product(get_the_ID());
-			if( ! ( $product instanceof \WC_Product ) ) return;
-
-			/* If the product is external */
-			if($product->is_type( 'external' )){
-				if($this->determine_link_target( $product->get_id() ) == true){
-					$target = '_blank';
-				} else {
-					$target = '';
-				}
-				/*
-				if($target == '_blank'){
-					?>
-					<script type="text/javascript">
-						jQuery( document ).ready(function( $ ) {
-							$('a.single_add_to_cart_button <?php echo esc_attr( $extra_selectors ); ?>').attr('target','_blank');
-						});
-					</script>
-					<?php
-				}*/
-			}
 		}
 	}
 

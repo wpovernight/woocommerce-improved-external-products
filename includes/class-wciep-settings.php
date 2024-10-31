@@ -12,7 +12,8 @@ class WPO_WCIEP_Settings {
 	protected static $_instance = null;
 	
 	public function __construct() {
-		add_action( 'admin_init', array( $this, 'init_settings' ) ); // Registers settings
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
+		add_action( 'admin_init', array( $this, 'init_settings' ) );
 		add_action( 'admin_menu', array( $this, 'iepp_add_page' ) );
 	}
 	
@@ -201,7 +202,7 @@ class WPO_WCIEP_Settings {
 	 * Add menu page
 	*/
 	public function iepp_add_page() {
-		$improvedexternalproducts_page = add_submenu_page(
+		add_submenu_page(
 			'woocommerce',
 			__( 'Improved External Products', 'woocommerce-improved-external-products' ),
 			__( 'Improved External Products', 'woocommerce-improved-external-products' ),
@@ -209,7 +210,6 @@ class WPO_WCIEP_Settings {
 			'iepp_options_page',
 			array( $this, 'improvedexternalproducts_options_do_page' )
 		);
-		add_action( 'admin_print_styles-' . $improvedexternalproducts_page, array( &$this, 'improvedexternalproducts_admin_styles' ) );
 	}
 
 	/**
@@ -224,8 +224,15 @@ class WPO_WCIEP_Settings {
 	/**
 	 * Styles for settings page
 	 */
-	public function improvedexternalproducts_admin_styles() {
-		wp_enqueue_style( 'improvedexternalproducts-admin' );
+	public function enqueue_admin_scripts_and_styles(): void {
+		if ( isset( $_REQUEST['page'] ) && 'iepp_options_page' === $_REQUEST['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			wp_enqueue_style(
+				'wpo-iepp-admin-style',
+				untrailingslashit( plugin_dir_url( dirname( __FILE__ ) ) ) . '/assets/css/admin-styles.css',
+				array(),
+				WC_IEP_VERSION
+			);
+		}
 	}
 	 
 	/**
@@ -247,8 +254,8 @@ class WPO_WCIEP_Settings {
 		<div class="wrap">
 			<div class="icon32" id="icon-options-general"><br /></div>
 			<h2><?php esc_html_e('Improved External Products','woocommerce-improved-external-products') ?></h2>
-			
-			<?php if (!class_exists('ImprovedExternalProductsPro')){ ?>
+
+			<?php if ( ! class_exists('ImprovedExternalProductsPro') ) { ?>
 			<div class="improved-external-products-pro-ad">
 				<img src="<?php echo esc_url( plugins_url( 'assets/images/wpo-helper.png', dirname(__FILE__) ) ); ?>" class="wpo-helper">
 				<h3><?php esc_html_e( 'Supercharge Improved External Products with the following features:', 'woocommerce-improved-external-products' ); ?></h3>
@@ -259,54 +266,7 @@ class WPO_WCIEP_Settings {
 				</ul>
 				<a href="https://wpovernight.com/downloads/improved-external-products-pro/" target="_blank"class="button button-primary"><?php esc_html_e("Get Improved External Products Pro!", 'woocommerce-improved-external-products'); ?></a>
 			</div>
-			<style>
-				.improved-external-products-pro-ad {
-					position: relative;
-					min-height: 90px;
-					border: 1px solid #3D5C99;
-					background-color: #EBF5FF;	
-					border-radius: 5px;
-					padding: 15px;
-					padding-left: 100px;
-					margin-top: 15px;
-					margin-bottom: 15px;
-				}
-				img.wpo-helper {
-					position: absolute;
-					bottom: 0;
-					left: 3px;
-				}
-				.improved-external-products-pro-ad h3 {
-					margin: 0;
-				}
-				.improved-external-products-pro-ad ul {
-					list-style-type: square;
-					margin: 0;
-					margin-left: 1.5em;
-					margin-top: 1em;
-					margin-bottom: 1.5em;
-				}
-				ul#datafeedr li:before{
-				    content: '✔';   
-				    margin-left: -1em;
-				    margin-right: .100em;
-				    color:green;
-				}
-
-				ul#datafeedr{
-				   padding-left: 20px;
-				   text-indent: 2px;
-				   list-style: none;
-				   list-style-position: outside;
-				}
-			</style>
 			<?php } ?>
-			<?php
-			$sections = get_option('improvedexternalproducts_sections');
-			//print_r($sections);
-			//$option = get_option('woocommerce-improved-external-products');
-			//print_r($option); //for debugging
-			?>
 			<form method="post" action="options.php">
 				<?php 
 					settings_fields( 'woocommerce-improved-external-products' );
@@ -318,16 +278,6 @@ class WPO_WCIEP_Settings {
 					<p><?php esc_html_e( 'Email support@wpovernight.com and we\'ll answer your question as quickly as possible.','woocommerce-improved-external-products' ); ?></p>
 				</div>
 			</form>
-			<script type="text/javascript">
-			jQuery( function ( $ ) {
-				$('.hidden-input').on('click',function() {
-					$(this).closest('.hidden-input').prev('.pro-feature').show('slow');
-					$(this).closest('.hidden-input').hide();
-				});
-
-				$("input.wcbulkorder-disabled").attr('disabled',true);
-			});
-			</script>
 		</div>
 		<?php
 	}
