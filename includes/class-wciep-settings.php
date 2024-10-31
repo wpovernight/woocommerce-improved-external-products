@@ -515,35 +515,6 @@ class WPO_WCIEP_Settings {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
-	/**
-	 * Displays a multicheckbox a settings field
-	 *
-	 * @param array   $args settings field args
-	 */
-	public function icons_radio_element_callback( $args ) {
-		$menu = $args['menu'];
-		$id = $args['id'];
-
-		$options = get_option( $menu );
-
-		if ( isset( $options[$id] ) ) {
-			$current = $options[$id];
-		} else {
-			$current = isset( $args['default'] ) ? $args['default'] : '';
-		}
-		$icons = '';
-		$radios = '';
-
-		foreach ( $args['options'] as $key => $iconnumber ) {
-			$icons .= sprintf( '<td style="padding-bottom:0;font-size:16pt;" align="center"><label for="%1$s[%2$s][%3$s]"><i class="improvedexternalproducts-icon-shopping-cart-%4$s"></i></label></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), esc_attr( $iconnumber ) );
-			$radios .= sprintf( '<td style="padding-top:0" align="center"><input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s /></td>', esc_attr( $menu ), esc_attr( $id ), esc_attr( $key ), checked( $current, $key, false ) );
-		}
-		$html = '<table><tr>'.$icons.'</tr><tr>'.$radios.'</tr></table>';
-		$html .= '<p class="description"><i>'. wp_kses( __('<strong>Please note:</strong> you need to open your website in a new tab/browser window after updating the cart icon for the change to be visible!','woocommerce-improved-external-products') ) .'</p>';
-
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-
 	public function multicheckbox_element_callback( $args ) {
 		$options    = get_option('woocommerce-improved-external-products');
 		$pag        = 'woocommerce-improved-external-products';
