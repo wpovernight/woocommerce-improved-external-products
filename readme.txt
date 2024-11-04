@@ -3,8 +3,8 @@ Contributors: pomegranate, jprummer, alexmigf, yordansoares, kluver, dpeyou, dwp
 Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, external/affiliate
 Requires at least: 3.5
-Tested up to: 6.6
-Stable tag: 1.6.7
+Tested up to: 6.7
+Stable tag: 1.6.8
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,10 @@ Pro Version Includes:
 If you are having any issues with this plugin, please feel free to report any them on the [support forum](https://wordpress.org/support/plugin/woocommerce-improved-external-products) or send an email to support@wpovernight.com.
 
 == Changelog ==
+
+= 1.6.8 (2024-11-04) =
+* Fix: remove files from SVN that were mistakenly left undeleted
+* Tested up to WordPress 6.7
 
 = 1.6.7 (2024-10-31) =
 * Fix: additional changes for plugin review compliance
