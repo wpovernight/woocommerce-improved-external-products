@@ -3,7 +3,7 @@ Contributors: pomegranate, jprummer, alexmigf, yordansoares, kluver, dpeyou, dwp
 Donate link: https://www.wpovernight.com/
 Tags: woocommerce, affiliate, external product, link, external/affiliate
 Requires at least: 3.5
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 1.6.8
 Requires PHP: 7.2
 License: GPLv2 or later
